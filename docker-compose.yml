@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  bot_searcher:
+    image: bot_searcher
+    build:
+      context: .\Bot_Searcher
+      dockerfile: Dockerfile

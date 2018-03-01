@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<title>청소년보호정책</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="/rules/css/rules_C_170426.css">
+<script src="/js/c/jquery-3.2.1.min.js"></script>
+
+</head>
+<body onload="setHeader('i3')">
+<div id="wrap">
+	<script type="text/javascript">
+	function addOnloadEvent(fnc) {
+		if (typeof window.addEventListener != "undefined")
+			window.addEventListener("load", fnc, false);
+		else if (typeof window.attachEvent != "undefined") {
+			window.attachEvent("onload", fnc);
+		} else {
+			if (window.onload != null) {
+				var oldOnload = window.onload;
+				window.onload = function(e) {
+					oldOnload(e);
+					window[fnc]();
+				};
+			} else
+				window.onload = fnc;
+		}
+	}
+	var gnb_service = "www";
+	var gnb_logout = document.location.href;
+	var gnb_template = "gnb_common_utf8";
+	var gnb_one_naver = 1;
+
+	addOnloadEvent(function() {
+		attachDocumentClickEvt();
+		getGNB();
+		$Element("content").delegate("click", ".tgl_more", function(evt) {
+			evt.stop();
+			var wel = $Element(evt.element);
+			var sTarget = wel.attr("href");
+			var welTarget = $Element($$.getSingle(sTarget));
+			if (welTarget.visible()) {
+				welTarget.hide();
+				wel.query(".ico_tgl").removeClass("on");
+			} else {
+				welTarget.show();
+				wel.query(".ico_tgl").addClass("on");
+			}	
+		});
+	});
+
+	function setHeader(sId) {
+		document.getElementById(sId).className = sId + " on";
+	}
+
+	function clickSelLang(el) {
+		var cur = document.getElementsByClassName("lang_wrap")[0].className;
+
+		if (cur.indexOf("opn") > 1) {
+			document.getElementsByClassName("lang_wrap")[0].className = "lang_wrap";
+		} else {
+			document.getElementsByClassName("lang_wrap")[0].className = "lang_wrap opn";
+		}
+	}
+
+	function changeLang(lang) {
+		if (lang === 'en') {
+			var engFile = ['/policy/service_en.html', '/policy/service_location_en.html', '/policy/service_group_en.html', '/policy/privacy_en.html'];
+			var toPath =  location.href.replace("/rules", "/policy").replace(".html", "_en.html");
+
+			for (var i in engFile) {
+				if (toPath.indexOf(engFile[i]) > 0) {
+					location.href = toPath;
+					return false;
+				}
+			}
+
+			location.href = engFile[0];
+
+		} else {
+			document.getElementsByClassName("lang_wrap")[0].className = "lang_wrap";
+		}
+	}
+
+    jQuery(document).ready(function() {
+        var hash = location.hash;
+        if (hash) {
+            jQuery(hash).parent().get(0).scrollIntoView();
+        }
+    });
+
+</script>
+<div id="header">
+	<a href="#content" class="skip_nav">본문바로가기</a>
+	<div class="top_area">
+		<div class="gnb_in">
+			<h1>
+				<a href="http://www.naver.com/" class="naver" title="NAVER">N</a>
+				<span class="rules">네이버정책</span>
+			</h1>
+			<!-- GNB 템플릿 적용부 -->
+			<div id="gnb">
+				<script type="text/javascript">
+					var attachDocumentClickEvt = function() {
+						$Element(document).attach("click", function(evt) {
+							if (!$Element("gnb").isParentOf(evt.element) && gnbAllLayerClose) {
+								gnbAllLayerClose();
+							}
+						});
+					}
+					document.write('<script src="/js/c/jindo.all.20161221.min.js" type="text/javascript"><\/script>');
+				</script>
+			
+			<script type="text/javascript" charset="utf-8" src="https://ssl.pstatic.net/static.gn/templates/gnb_utf8.nhn?2018022722"></script>
+			</div>
+			<!--//GNB 템플릿 적용부 -->
+		</div>
+	</div>
+	<div class="tit_area">
+		<h2 class="sub_tit">NAVER Terms &amp; Privacy</h2>
+		<!-- [D] 셀렉트박스 노출시 class opn 추가 -->
+		<div class="lang_wrap">
+			<a href="javascript:clickSelLang();" class="sel_lang">한국어(Korean)<i class="arr"></i></a>
+			<div class="lang_lst">
+				<a href="javascript:changeLang('ko');">한국어(Korean)</a>
+				<a href="javascript:changeLang('en');">영어(English)</a>
+			</div>
+		</div>
+	</div>
+	<ul id="lnb">
+		<li id="i1" class="i1"><a href="service.html">이용약관</a></li>
+		<li id="i2" class="i2"><a href="privacy.html">개인정보취급방침</a></li>
+		<li id="i3" class="i3"><a href="youthpolicy.html">청소년보호정책</a></li>
+		<li id="i4" class="i4"><a href="spamcheck.html">스팸메일정책</a></li>
+		<li id="i5" class="i5"><a href="disclaimer.html">책임의 한계와 법적고지</a></li>
+		<li id="i6" class="i6"><a href="search_policy.html">검색결과 수집에 대한 정책</a></li>
+		<li id="i7" class="i7"><a href="iso27001.html">정보보호 인증</a></li>
+		<li id="i8" class="i8"><a href="soc.html">SOC 인증</a></li>
+	</ul>
+</div>
+	<div id="content" class="teenagers">
+		<div class="title">
+			<h2><a name="skip_to_content"><img src="https://s.pstatic.net/static/www/u/2013/0731/mma_10517460.gif" title="네이버 청소년 보호정책" alt="네이버 청소년 보호정책. 네이버 주식회사는 청소년 보호정책을 수립, 시행하고 있습니다." width="370" height="58"></a></h2>
+			<div class="nav2">
+				<p>시행일자 : 2005년 6월 1일</p>
+			</div>
+		</div>
+		<div class="section">
+			<h3>네이버 청소년 보호정책</h3>
+			<p class="mt20">네이버 주식회사 ("회사" 또는 "네이버"라 함)는 청소년이 건전한 인격체로 성장할 수 있도록 하기 위하여 청소년 보호정책을 수립, 시행하고 있습니다.<br>
+				회사는 청소년들이 유해정보에 접근할 수 없도록 방지하고 있는 바, 본 청소년 보호정책을 통하여 회사가 청소년보호를 위해 어떠한 조치를 취하고 있는지 알려드립니다.</p>
+			<h4><span class="first_letter">1.</span> 유해정보에 대한 <strong>청소년접근제한 및 관리조치</strong></h4>
+			<p class="depth1">회사는 청소년이 아무런 제한장치 없이 청소년 유해정보에 노출되지 않도록 별도의 인증장치를 마련, 적용하며 청소년 유해정보가 노출되지 않기 위한 예방차원의 조치를 강구합니다.</p>
+			<h4><span class="first_letter">2.</span> 유해정보로부터의 청소년보호를 위한 <strong>업무 담당자 교육 시행</strong></h4>
+			<p class="depth1">회사는 정보통신업무 종사자를 대상으로 청소년보호 관련 법령 및 제재기준, 유해정보 발견시 대처방법, 위반사항 처리에 대한 보고절차 등을 교육하고 있습니다.</p>
+			<h4><span class="first_letter">3.</span> 유해정보로 인한 <strong>피해상담 및 고충처리</strong></h4>
+			<p class="depth1">회사는 청소년 유해정보로 인한 피해상담 및 고충처리를 위한 전문인력을 배치하여 그 피해가 확산되지 않도록 하고 있습니다. <br>
+				이용자 분들께서는 하단에 명시한 "4. 네이버 청소년보호 책임자 및 담당자의 소속, 성명 및 연락처" 항을 참고하여 전화나 메일을 통하여 피해상담 및 고충처리를 요청할 수 있습니다.</p>
+			<h4><span class="first_letter">4.</span> 네이버 청소년보호 책임자 및 담당자의 소속, 성명 및 <strong>연락처</strong></h4>
+			<p class="depth1">네이버는 청소년들이 좋은 정보를 안전하게 이용할 수 있도록 최선을 다하고 있습니다.</p>
+			<div class="contact">
+				<table>
+				<caption class="blind">청소년 보호 관리 책임자 정보 및 연락처</caption>
+				<colgroup><col width="156">
+				<col width="245">
+				<col width="157">
+				<col>
+				</colgroup><thead>
+				<tr>
+					<th colspan="2" scope="col">청소년 보호 관리 책임자 </th>
+					<th colspan="2" scope="col" class="line">청소년 보호 관리 실무자 </th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td class="col1">이 름 : 정연아 </td>
+					<td class="col2">소 속 : 법무 </td>
+					<td class="col3 line">이 름 : 하정주 </td>
+					<td class="col4">소 속 : 법무 </td>
+				</tr>
+				<tr>
+					<td class="col1">메 일 :
+						<a href="mailto:youthpolicy@naver.com">youthpolicy@naver.com</a>
+					</td>
+					<td class="col2">직 위 : 리더 </td>
+					<td class="col3 line">전 화 : 1588-3820 </td>
+				</tr>
+				<tr>
+					<td class="col1">&nbsp;</td>
+					<td class="col2">&nbsp;</td>
+					<td class="col3 line">메 일 :
+						<a href="mailto:youthpolicy2@naver.com">youthpolicy2@naver.com</a>
+					</td>
+					<td class="col4">&nbsp;</td>
+				</tr>
+				</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div id="gotop" class="gotop">
+	<a href="javascript:scrollTo(0, 0);">top</a>
+</div>
+<div id="footer">
+	<ul>
+		<li class="first"><a href="http://www.navercorp.com/" target="_blank">회사소개</a></li>
+		<li><a href="http://recruit.navercorp.com/" target="_blank" class="str">인재채용</a></li>
+		<li><a href="https://www.navercorp.com/nhn/company/proposalGuide.nhn" target="_blank">제휴제안</a></li>
+		<li><a href="service.html" target="_top">이용약관</a></li>
+		<li><a href="privacy.html" target="_top"><strong>개인정보처리방침</strong></a></li>
+		<li><a href="youthpolicy.html" target="_top">청소년보호정책</a></li>
+		<li><a href="disclaimer.html" target="_top">책임의 한계와 법적고지</a></li>
+		<li><a href="search_policy.html" target="_top">검색결과수집에 대한 정책</a></li>
+		<li><a href="emreject.html" target="_top">이메일주소 무단수집 거부</a></li>
+		<li><a href="http://help.naver.com/" target="_top">네이버 고객센터</a></li>
+	</ul>
+	<address>
+		<a href="http://www.navercorp.com/" target="_blank" class="logo"><img src="https://s.pstatic.net/static/common/footer/logo_naver.gif" width="63" height="15" alt="NAVER"></a>
+		<em>Copyright ⓒ</em>
+		<a href="http://www.navercorp.com/" target="_blank">NAVER Corp.</a>
+		<span>All Rights Reserved.</span>
+	</address>
+</div>
+</div>
+</body>
+</html>

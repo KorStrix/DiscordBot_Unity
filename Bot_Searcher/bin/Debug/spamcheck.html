@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<title>스팸메일정책</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="/rules/css/rules_C_170426.css">
+<script src="/js/c/jquery-3.2.1.min.js"></script>
+
+</head>
+<body onload="setHeader('i4')">
+<div id="wrap">
+	<script type="text/javascript">
+	function addOnloadEvent(fnc) {
+		if (typeof window.addEventListener != "undefined")
+			window.addEventListener("load", fnc, false);
+		else if (typeof window.attachEvent != "undefined") {
+			window.attachEvent("onload", fnc);
+		} else {
+			if (window.onload != null) {
+				var oldOnload = window.onload;
+				window.onload = function(e) {
+					oldOnload(e);
+					window[fnc]();
+				};
+			} else
+				window.onload = fnc;
+		}
+	}
+	var gnb_service = "www";
+	var gnb_logout = document.location.href;
+	var gnb_template = "gnb_common_utf8";
+	var gnb_one_naver = 1;
+
+	addOnloadEvent(function() {
+		attachDocumentClickEvt();
+		getGNB();
+		$Element("content").delegate("click", ".tgl_more", function(evt) {
+			evt.stop();
+			var wel = $Element(evt.element);
+			var sTarget = wel.attr("href");
+			var welTarget = $Element($$.getSingle(sTarget));
+			if (welTarget.visible()) {
+				welTarget.hide();
+				wel.query(".ico_tgl").removeClass("on");
+			} else {
+				welTarget.show();
+				wel.query(".ico_tgl").addClass("on");
+			}	
+		});
+	});
+
+	function setHeader(sId) {
+		document.getElementById(sId).className = sId + " on";
+	}
+
+	function clickSelLang(el) {
+		var cur = document.getElementsByClassName("lang_wrap")[0].className;
+
+		if (cur.indexOf("opn") > 1) {
+			document.getElementsByClassName("lang_wrap")[0].className = "lang_wrap";
+		} else {
+			document.getElementsByClassName("lang_wrap")[0].className = "lang_wrap opn";
+		}
+	}
+
+	function changeLang(lang) {
+		if (lang === 'en') {
+			var engFile = ['/policy/service_en.html', '/policy/service_location_en.html', '/policy/service_group_en.html', '/policy/privacy_en.html'];
+			var toPath =  location.href.replace("/rules", "/policy").replace(".html", "_en.html");
+
+			for (var i in engFile) {
+				if (toPath.indexOf(engFile[i]) > 0) {
+					location.href = toPath;
+					return false;
+				}
+			}
+
+			location.href = engFile[0];
+
+		} else {
+			document.getElementsByClassName("lang_wrap")[0].className = "lang_wrap";
+		}
+	}
+
+    jQuery(document).ready(function() {
+        var hash = location.hash;
+        if (hash) {
+            jQuery(hash).parent().get(0).scrollIntoView();
+        }
+    });
+
+</script>
+<div id="header">
+	<a href="#content" class="skip_nav">본문바로가기</a>
+	<div class="top_area">
+		<div class="gnb_in">
+			<h1>
+				<a href="http://www.naver.com/" class="naver" title="NAVER">N</a>
+				<span class="rules">네이버정책</span>
+			</h1>
+			<!-- GNB 템플릿 적용부 -->
+			<div id="gnb">
+				<script type="text/javascript">
+					var attachDocumentClickEvt = function() {
+						$Element(document).attach("click", function(evt) {
+							if (!$Element("gnb").isParentOf(evt.element) && gnbAllLayerClose) {
+								gnbAllLayerClose();
+							}
+						});
+					}
+					document.write('<script src="/js/c/jindo.all.20161221.min.js" type="text/javascript"><\/script>');
+				</script>
+			
+			<script type="text/javascript" charset="utf-8" src="https://ssl.pstatic.net/static.gn/templates/gnb_utf8.nhn?2018022722"></script>
+			</div>
+			<!--//GNB 템플릿 적용부 -->
+		</div>
+	</div>
+	<div class="tit_area">
+		<h2 class="sub_tit">NAVER Terms &amp; Privacy</h2>
+		<!-- [D] 셀렉트박스 노출시 class opn 추가 -->
+		<div class="lang_wrap">
+			<a href="javascript:clickSelLang();" class="sel_lang">한국어(Korean)<i class="arr"></i></a>
+			<div class="lang_lst">
+				<a href="javascript:changeLang('ko');">한국어(Korean)</a>
+				<a href="javascript:changeLang('en');">영어(English)</a>
+			</div>
+		</div>
+	</div>
+	<ul id="lnb">
+		<li id="i1" class="i1"><a href="service.html">이용약관</a></li>
+		<li id="i2" class="i2"><a href="privacy.html">개인정보취급방침</a></li>
+		<li id="i3" class="i3"><a href="youthpolicy.html">청소년보호정책</a></li>
+		<li id="i4" class="i4"><a href="spamcheck.html">스팸메일정책</a></li>
+		<li id="i5" class="i5"><a href="disclaimer.html">책임의 한계와 법적고지</a></li>
+		<li id="i6" class="i6"><a href="search_policy.html">검색결과 수집에 대한 정책</a></li>
+		<li id="i7" class="i7"><a href="iso27001.html">정보보호 인증</a></li>
+		<li id="i8" class="i8"><a href="soc.html">SOC 인증</a></li>
+	</ul>
+</div>
+	<div id="content" class="spam">
+		<div class="title">
+ 
+			<h2><a name="skip_to_content"><img src="https://s.pstatic.net/static/rules/r8/h2_spam.gif" title="네이버 스팸메일 방지정책" alt="네이버 스팸메일 방지정책. 스팸이 없는 깨끗한 메일, 깨끗한 메일환경을 보장합니다." width="256" height="42"></a></h2>
+			<div class="nav2">
+				<ol class="ol1">
+				<li>1.
+					<a href="#a1">메일서버등록제(SPF) 실시</a>
+				</li>
+				<li>2.
+					<a href="#a2">통합 White Domain 등록제 실시</a>
+				</li>
+ 
+				<li>3.
+					<a href="#a3">스팸신고제 실시</a>
+				</li>
+				</ol>
+				<ol class="ol2">
+				<li>4.
+					<a href="#a4">다양한 스팸 방지 기능제공</a>
+				</li>
+				<li>5.
+					<a href="#a5">회원 소식지 제한적 발송</a>
+ 
+				</li>
+				</ol>
+			</div>
+		</div>
+		<div class="section">
+			<h3 class="first">1. 네이버 스팸메일 방지정책</h3>
+			<p class="depth1 mt20">스팸메일이란 수신자의 의사와 상관없이 일방적으로 전송되는 불필요한 광고성 메일을 말합니다.<br><br>
+			* 스팸 : 정보통신망을 통해 이용자가 원하지 않는데도 불구하고 일방적으로 전송 또는 게시되는 영리목적의 광고성 정보<br><br>
+			네이버는 스팸메일로 인한 폐해로부터 고객님을 보호하고 올바른 인터넷문화를 선도하기 위하여 본 스팸메일 방지정책을 수립하여 적용하고 있습니다.<br>
+			이는 깨끗한 메일 커뮤니케이션 세상을 만들고자 함이오니 많은 협조 부탁 드립니다.</p>
+ 
+			<h3 id="b1">2. 네이버 스팸메일 기준</h3>
+			<p class="depth1 mt20">네이버는 개인 간의 커뮤니케이션을 위한 메일, 수신 동의 후 받은 메일, 기업의 영업활동을 위한 합법적인 커뮤니케이션 메일 이외의 아래와 같은 메일을 스팸메일로 판단합니다. 스팸메일로 판단되는 경우 해당 메일을 차단하고, 스팸메일 발송자에 대해서는 메일 서비스 이용을 제한합니다.</p>
+			<ul class="depth1 mt10">
+			<li>- 정보통신망 이용촉진 및 정보보호에 관한 법률 등 관계법령 및 한국인터넷진흥원의 스팸메일 방지 가이드라인을 준수하지 않은 메일<br>
+				<p style="margin-top:5px;">관계법령 및 스팸메일 방지 가이드라인에서 광고성 메일에 밝히도록 규정하고 있는 전송정보의 유형 및 주요내용, 전송자의 명칭 및 연락처 정보 (업체명 또는 성명과 연락처, 이메일주소), 전자우편주소를 수집한 출처를 기재하지 않는 경우에는 스팸메일로 판단합니다. <br>
+				또한 영리목적의 광고성 메일을 전송하는 경우 제목란과 본문란에 반드시 ‘광고’를 기재해야 하고, 메일의 본문에는 수신자가 수신거부를 할 수 있는 방법을 명시해야 하며, 이를 준수하지 않은 경우 스팸메일로 판단합니다.</p>
+ 
+			</li>
+			<li>- 수신자의 동의 없이 대량으로 발송되는 메일<br>
+				<p style="margin-top:5px;">수신자가 동의하지 않은 메일이 대량으로 발송되는 경우에는 메일 규정을 준수하였다 하더라도 적법하지 않은 경로를 통해 메일주소를 수집한 것으로 간주하여 스팸메일로 판단합니다.</p>
+ 
+			</li>
+			<li>- 관리자 사칭 또는 허위사실 유포 메일<br>
+				<p style="margin-top:5px;">네이버 서비스 관리자를 가장하여 메일을 발송하거나, 타인의 명의를 도용하여 메일을 보내는 경우 스팸메일로 판단합니다.</p>
+ 
+			</li>
+			<li>- 불특정 다수를 대상으로 발송되는 ‘대출’광고 또는 선전 메일<br>
+				<p style="margin-top:5px;">불특정 다수를 대상으로 ‘대출’광고 또는 선전 메일을 영리 목적으로 발송하는 경우 스팸메일로 판단합니다.</p>
+ 
+			</li>
+			<li>- 음란성 글, 음란/불법 CD 및 프로그램 판매 메일<br>
+				<p style="margin-top:5px;">업체 혹은 개인이 보내는 음란성 글, 음란/불법 CD 및 프로그램 판매와 관련된 메일을 스팸메일로 판단합니다.</p>
+ 
+			</li>
+			<li>- 공포심 또는 불안감을 유발하는 연속성 메일 및 사기성 메일<br>
+				<p style="margin-top:5px;">행운의 편지 또는 저주의 글을 비롯해 다른 사용자에게 공포심이나 불안감을 주는 메일, 정확한 근거 없이 많은 돈을 벌 수 있다는 사기성 메일을 반복적으로 보내는 경우 스팸메일로 판단합니다.</p>
+ 
+			</li>
+			<li>- 스팸메일 신고가 일정 수치 이상이며, 메일내용이 객관적으로도 스팸인 경우<br>
+				<p style="margin-top:5px;">네이버 회원으로부터 특정 메일에 대해 스팸신고가 지속적으로 들어온다는 것은 해당 메일 수신자에게 피해를 준다는 의미이므로, 스팸메일 신고 횟수가 일정 수치 이상이고 해당 메일내용이 객관적으로도 스팸으로 보이는 경우 스팸메일로 판단합니다.</p>
+ 
+			</li>
+			</ul>
+			<h3>3. 네이버 스팸메일 차단 방안</h3>
+ 
+			<h4><a name="a1">(1) 메일서버등록제(SPF) 실시</a></h4>
+			<p class="depth2 mt10">메일서버등록제(SPF : Sender Policy Framework)는 발송자 정보를 위/변조하는 스팸메일을 차단하기 위한 기술로 방송통신위원회 산하 한국인터넷진흥원과 국내 포탈업체가 함께 추진하고 있습니다. 네이버에서는 2005년 11월 22일부터 도입하여 적용하고 있습니다.<br>
+			메일서버등록제를 도입하게 되면 메일을 발송할 때 발송서버 정보가 특정한 형태(SPF 레코드)로 메일에 포함되어 함께 전송되는데, 이를 통해 수신측에서는 해당 메일이 발송자 정보가 위/변조되지 않았음을 확인할 수 있게 됩니다.<br>
+			즉, 메일을 보낼 때 해당 메일이 어떤 서버에서 발송되는 메일인지 이름표를 붙여서 보내면 받는 쪽에서 그 이름표를 보고 발송 서버의 정보를 확인하는 형태입니다. 메일서버등록제가 시행되면 발송자 정보를 위/변조하는 불법 스팸메일과 피싱메일 등이 사전에 차단되어 스팸메일이 줄어듭니다.
+			</p>
+			<p class="depth2 mt10 pb3"><img src="https://s.pstatic.net/static/www/rules/p_spam3_1.gif" alt="발송자 정보 위/변조 메일은 사전에 차단되고 SPF레코드 등록메일만 Mail Server 발신서버 정보확인을 거쳐 메일 서버 등록제에 등록된 메일만 수신 됨" width="841" height="141"></p>
+ 
+			<h4><a name="a2">(2) 통합 White Domain 등록제 실시</a></h4>
+			<p class="depth2 mt10">통합 White Domain 등록제는 정상적인 메일서버가 스팸발송 서버로 오인되어 메일전송에 제한 받는 것을 최소화하기 위한 방안으로 한국인터넷진흥원(KISA)에서 White IP를 통합 관리하는 제도입니다. <br>
+			그러나 KISA에 White IP로 등록되었다 하더라도 상시적인 모니터링을 통해 등록된 도메인으로 스팸발송 내역이 확인되면 White Domain에서 삭제되고 즉각 차단 조치됩니다. </p>
+			<p class="depth2 mt10">* White Domain에 등록하지 않은 IP에 대해서 발송 통수 제한<br>
+			한국인터넷진흥원의 통합 white Domain에 등록하지 않고 대량으로 발송된 메일은 확인할 수 없는 IP로 판단하여 발송통수에 제한을 두고 있습니다.<br>안정적인 메일 송신을 원하는 업체에서는 통합 White Domain 등록을 해주시기 바랍니다. <br>
+			<a href="https://www.kisarbl.or.kr/" target="_blank">[통합 White Domain 자세히 보기]</a></p>
+ 
+			<h4><a name="a3">(3) 스팸신고제 실시</a></h4>
+			<p class="depth2 mt10">원치 않는 메일주소로부터 메일을 받는 경우, 수신거부를 했음에도 불구하고 메일이 수신되는 경우, 또는 성인광고/피라미드 사기성 메일 등 각종 불법 스팸메일을 수신하는 경우에 스팸메일 신고센터에 ‘스팸신고’를 하게 되면 메일의 내용과 신고 건수를 분석하여 스팸메일 여부를 판단합니다. 판단 결과 해당 메일이 수신자에게 불쾌감을 줄 수 있는 스팸메일로 간주될 경우 서버에서 메일을 차단함으로써 고객님께 메일이 수신되지 않도록 조치합니다.</p>
+			<p class="depth2 mt10 pb3"><img src="https://s.pstatic.net/static/www/rules/p_spam2_1.gif" alt="1.불법 스팸메일 2.스팸메일신고 3.스팸메일 신고센터에서 신고 접수 및 스팸메일 검토 후 스팸필터 적용 4. 깨끗한 메일만 수신" width="841" height="141"></p>
+			<h4><a name="a4">(4) 다양한 스팸 방지 기능제공</a></h4>
+			<ul class="depth2 mt10">
+			<li>- 메일주소, 도메인에 따른 수신거부
+				<p style="margin-top:5px;">특정 메일 주소 또는 도메인에서 발송된 메일을 받고 싶지 않은 경우 수신거부 기능을 이용할 수 있습니다.<br>
+				즉, 수신거부 하고자 하는 메일주소 또는 도메인을 수신거부 목록에 등록해놓으면, 해당 주소와 도메인으로부터 수신된 메일은 발송자에게 반송 처리됩니다.</p>
+			</li>
+			<li>- 조건에 따른 스팸설정
+				<p style="margin-top:5px;">메일 제목에 ‘광고’, ‘성인’ 등의 문구가 포함되어 있거나, 수신 메일의 [받는이]와 [참조]란에 내 메일주소가 없는 경우 등 다양한 조건을 스팸메일로 설정하여 걸러내는 기능입니다.<br>
+				스팸메일로 분류된 메일은 자동으로 스팸편지함으로 배달됩니다. <br>
+				또한 메일 자동분류 기능을 사용하여 조건별로 이동할 편지함(스팸메일함, 휴지통 등)을 지정할 수 있습니다.</p>
+			</li>
+			<li>- 언어별 스팸분류 설정
+				<p style="margin-top:5px;">제목과 본문이 영어, 일본어, 중국어, 러시아어 등 외국어로 작성된 메일을 스팸으로 분류하여 스팸메일함으로 수신되도록 설정할 수 있습니다.</p>
+			</li>
+			<li>- 이용자 설정
+				<p style="margin-top:5px;">주소록에 지인들의 메일주소를 등록 후, 주소록에 없는 메일주소로부터 온 메일은 모두 스팸메일함으로 수신되도록 설정할 수 있습니다.  </p>
+			</li>
+			</ul>
+			<h4><a name="a5">(5) 네이버 회원 소식지 제한적 발송</a></h4>
+ 
+			<ul class="depth2 mt10">
+			<li>- 네이버 회원가입 및 메일 수신동의 절차를 거친 고객에게만 소식지 발송
+				<p style="margin-top:5px;">당사는 네이버 회원가입 및 메일 수신동의 절차를 거친 고객에게만 회원 소식지를 발송하고 있습니다. <br>
+				고객님의 회원가입 일자 및 메일 수신동의 확인은 아이디 찾기 와 회원정보 변경페이지에서 각각 확인하실 수 있습니다.</p>
+			</li>
+			<li>- 네이버 회원 소식지 수신거부 기능
+				<p style="margin-top:5px;">당사에서 발송한 네이버 소식지에 대한 수신거부는 시스템에 반영되는 즉시 조치되며, 이후 별도의 동의가 없는 한 재발송되지 않습니다.<br>
+				이에 대한 당사의 후속조치는 서버연계 및 서비스점검 등의 사유로 인하여 수신 거부한 당일 오후 12시부터 3일(영업일기준) 이내에 조치 완료됩니다.</p>
+			</li>
+			</ul>
+			<h3>4. 스팸메일 발송 회원에 대한 이용의 제한 및 제재</h3>
+			<p class="depth2 mt10">당사는 아래의 사유에 해당하는 회원의 경우 정보통신망이용촉진 및 정보보호 등에 관한 법률에 따라 네이버 메일 서비스 이용을 제한할 수 있습니다. </p>
+ 
+			<ul class="depth2 mt10">
+			<li>- 위의 <a href="#b1">[2. 네이버 스팸메일 기준]</a> 에 해당하는 스팸메일을 전송한 경우</li>
+			<li>- 방송통신위원회 또는 한국인터넷진흥원이 불법스팸 전송사실을 확인하여 이용정지 또는 계약해지를 요청하는 경우 </li>
+			<li>- 대량으로 스팸을 전송하여 시스템 장애를 야기했거나 야기할 우려가 있는 경우 </li>
+			<li>- 스팸릴레이로 이용되거나 웜에 감염된 스팸메일을 전송한 경우 </li>
+			</ul>
+			<p class="depth2 mt10">위 사유 중 하나라도 해당할 경우, 당사는 해당 회원의 메일 서비스 이용을 제한할 수 있습니다. 서비스 이용제한은 상황에 따라 전체 서비스 또는 부분적으로 적용될 수 있으며, 기간은 일시적이거나 영구적일 수 있습니다. 이용제한 조치 시에는 해당 사실을 이용자에게 통보합니다. 단, 미리 통지하는 것이 곤란한 경우에는 선조치 후 통지될 수 있으니 이점 양해 바랍니다.<br>
+			이용제한을 받은 회원은 이용제한 기간 경과 후 1개월 이내에 그 사유를 해소하여야 하며, 해소 후 해당 근거자료를 첨부하여 당사에 서비스 이용제한 해제 신청을 해주시면 검토 후 이용제한 해제 조치해드립니다.</p>
+			<p class="depth2" style="margin-top:5px">
+			정보통신망이용촉진 및 정보보호 등에 관한 법률에 따라 의도적으로 영리목적의 광고성 정보를 전송한 자 및 이를 하게 한 자(광고주, 위탁자)는 수사기관에 고발되어 과태료부과 및 실형에 처해질 수 있습니다.</p>
+ 
+			<h3>5. 기타 관련 안내사항</h3>
+			<ul class="depth1 ex mt20">
+			<li><span class="first_letter">-</span> 당사는 서비스 제공과 관련하여 알고 있는 회원의 개인정보를 본인의 승낙 없이 제3자에게 누설, 배포하지 않습니다.<br>
+			단, 관계법령에 의한 관계기관으로부터의 요청 등 법률의 규정에 따른 적법한 절차에 의한 경우에는 그렇지 않습니다. </li>
+			<li><span class="first_letter">-</span> 당사는 서비스 제공 목적에 맞는 서비스 이용 여부를 확인하기 위하여 상시적으로 모니터링을 실시합니다. </li>
+			<li><span class="first_letter">-</span> 당사는 스팸 수신거부 처리 등 스팸 관련 민원을 처리하기 위해 네이버 고객센터를 아래와 같이 운영합니다. </li>
+			<li class="mt10">본 스팸메일 방지정책은 2009년 5월 8일부터 적용됩니다.</li>
+			<li class="mt20">
+				<dl class="contact">
+				<dt>네이버 고객센터 연락처 </dt>
+				<dd>전화 문의 : 1588-3820 (월요일~ 금요일 09:00 ~ 18:00, 토일 공휴일 휴무)</dd>
+				<dd>온라인 문의 : <a href="http://help.naver.com" target="_blank">http://help.naver.com</a>
+				</dd>
+ 
+				</dl>
+			</li>
+			</ul>
+		</div>
+	</div>
+	<div id="gotop" class="gotop">
+	<a href="javascript:scrollTo(0, 0);">top</a>
+</div>
+<div id="footer">
+	<ul>
+		<li class="first"><a href="http://www.navercorp.com/" target="_blank">회사소개</a></li>
+		<li><a href="http://recruit.navercorp.com/" target="_blank" class="str">인재채용</a></li>
+		<li><a href="https://www.navercorp.com/nhn/company/proposalGuide.nhn" target="_blank">제휴제안</a></li>
+		<li><a href="service.html" target="_top">이용약관</a></li>
+		<li><a href="privacy.html" target="_top"><strong>개인정보처리방침</strong></a></li>
+		<li><a href="youthpolicy.html" target="_top">청소년보호정책</a></li>
+		<li><a href="disclaimer.html" target="_top">책임의 한계와 법적고지</a></li>
+		<li><a href="search_policy.html" target="_top">검색결과수집에 대한 정책</a></li>
+		<li><a href="emreject.html" target="_top">이메일주소 무단수집 거부</a></li>
+		<li><a href="http://help.naver.com/" target="_top">네이버 고객센터</a></li>
+	</ul>
+	<address>
+		<a href="http://www.navercorp.com/" target="_blank" class="logo"><img src="https://s.pstatic.net/static/common/footer/logo_naver.gif" width="63" height="15" alt="NAVER"></a>
+		<em>Copyright ⓒ</em>
+		<a href="http://www.navercorp.com/" target="_blank">NAVER Corp.</a>
+		<span>All Rights Reserved.</span>
+	</address>
+</div>
+</div>
+</body>
+</html>
