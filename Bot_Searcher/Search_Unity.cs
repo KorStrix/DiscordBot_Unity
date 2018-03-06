@@ -16,7 +16,7 @@ namespace Bot_Searcher
 		[Command( "unity" )]
 		public async Task SearchStart_Unity( CommandContext pContext, string strSearchWord )
 		{
-			if (BotLibrary.CheckIsRespond( pContext ) == false) return;
+			if (CBot.CheckIsRespond( pContext ) == false) return;
 
 			await Event_SearchStart( pContext, strSearchWord, Search_UnityAPI, string.Format( strURL_UnityScriptAPI, strSearchWord ), "UnityAPI", true );
 		}

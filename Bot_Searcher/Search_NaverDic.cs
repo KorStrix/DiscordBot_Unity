@@ -18,7 +18,7 @@ namespace Bot_Searcher
 		[Command( "dic" )]
 		public async Task SearchStart_NaverDic( CommandContext pContext, string strSearchWord )
 		{
-			if (BotLibrary.CheckIsRespond( pContext ) == false) return;
+			if (CBot.CheckIsRespond( pContext ) == false) return;
 
 			await Event_SearchStart( pContext, strSearchWord, Search_NaverDic, string.Format( strURL_NaverDic_General, strSearchWord ), "Naver 사전" );
 		}
@@ -26,7 +26,7 @@ namespace Bot_Searcher
 		[Command( "dicen" )]
 		public async Task SearchStart_NaverDic_English( CommandContext pContext, string strSearchWord )
 		{
-			if (BotLibrary.CheckIsRespond( pContext ) == false) return;
+			if (CBot.CheckIsRespond( pContext ) == false) return;
 
 			await Event_SearchStart( pContext, strSearchWord, Search_NaverDic_En, string.Format( strURL_NaverDic_English, strSearchWord ), "Naver 영어사전", true );
 		}
@@ -34,7 +34,7 @@ namespace Bot_Searcher
 		[Command( "dicko" )]
 		public async Task SearchStart_NaverDic_Korean( CommandContext pContext, string strSearchWord )
 		{
-			if (BotLibrary.CheckIsRespond( pContext ) == false) return;
+			if (CBot.CheckIsRespond( pContext ) == false) return;
 
 			await Event_SearchStart( pContext, strSearchWord, Search_NaverDic_Ko, string.Format( strURL_NaverDic_Korea, strSearchWord ), "Naver 국어사전", true );
 		}

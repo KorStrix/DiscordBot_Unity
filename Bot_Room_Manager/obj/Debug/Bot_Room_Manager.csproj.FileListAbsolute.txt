@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Debug\Bot_Room_Manager.exe.config
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Debug\Bot_Room_Manager.exe
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Debug\Bot_Room_Manager.pdb
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\obj\Debug\Bot_Room_Manager.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\obj\Debug\Bot_Room_Manager.exe
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\obj\Debug\Bot_Room_Manager.pdb
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\obj\Debug\Bot_Room_Manager.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Debug\BotLibrary.dll
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Debug\DSharpPlus.CommandsNext.dll
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Debug\DSharpPlus.dll
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Debug\Newtonsoft.Json.dll
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Debug\BotLibrary.pdb
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Debug\DSharpPlus.xml
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Debug\DSharpPlus.CommandsNext.xml
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Debug\Newtonsoft.Json.xml

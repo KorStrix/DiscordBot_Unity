@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<SConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Token>NDE5MzMwOTI1Mzc4MjczMjgw.DX7Aqw.eBE79sST8oeqbc3MsJ5tTla9zTk</Token>
+  <CallID>ro</CallID>
+  <CallChannel>room-manager</CallChannel>
+  <LobbyChannelID>417454891670437900</LobbyChannelID>
+  <BootingMessage>방관리자 준비 완료.</BootingMessage>
+  <Tutorial Title="'Ro'om Manager 방관리자 튜토리얼입니다.">
+    <Fields>
+      <Field FieldName="기능" FieldValue="설명" />
+    </Fields>
+  </Tutorial>
+</SConfig>

@@ -9,35 +9,21 @@ namespace Bot_Searcher
 	{
 		static private DiscordClient _pClient;
 		static CommandsNextModule _pCommands_Search;
+        static Strix.XML_Config.SConfig _pConfig;
 
 		static void Main( string[] args )
 		{
-			Strix.BotLibrary.CXMLParser.Load();
+            _pConfig = Strix.CManagerXMLParser.LoadXML<Strix.XML_Config.SConfig>("Config.xml", Strix.XML_Config.SConfig.CreateDummy);
 			MainAsync( args ).ConfigureAwait( false ).GetAwaiter().GetResult();
 		}
 
 		static async Task MainAsync( string[] args )
 		{
-			_pClient = new DiscordClient( new DiscordConfiguration
-			{
-				Token = Strix.BotLibrary.CXMLParser.pConfig.strBotToken,
-				TokenType = TokenType.Bot,
-
-				UseInternalLogHandler = true,
-				LogLevel = DSharpPlus.LogLevel.Debug
-			} );
-
-			_pCommands_Search = _pClient.UseCommandsNext( new CommandsNextConfiguration
-			{
-				StringPrefix = Strix.BotLibrary.CXMLParser.pConfig.strCall_ID
-			} );
-			
-			_pCommands_Search.RegisterCommands<Command_Search>();
-
-			Console.WriteLine( "Searcher Is Ready" );
+            Strix.CBot.DoInitClient(out _pClient, out _pCommands_Search);
+            _pCommands_Search.RegisterCommands<Command_Search>();
 
 			await _pClient.ConnectAsync();
 			await Task.Delay( -1 );
 		}
-	}
+    }
 }

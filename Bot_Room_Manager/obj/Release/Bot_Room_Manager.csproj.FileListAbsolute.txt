@@ -1,0 +1,7 @@
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Release\Bot_Room_Manager.exe.config
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Release\Bot_Room_Manager.exe
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Release\Bot_Room_Manager.pdb
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\obj\Release\Bot_Room_Manager.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\obj\Release\Bot_Room_Manager.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\obj\Release\Bot_Room_Manager.exe
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\obj\Release\Bot_Room_Manager.pdb

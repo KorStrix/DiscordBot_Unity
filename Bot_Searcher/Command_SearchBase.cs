@@ -14,17 +14,6 @@ namespace Bot_Searcher
 
 		static StringBuilder _pStrBuilder = new StringBuilder();
 
-		[Command( "tutorial" )]
-		public async Task Start_Tutorial_1( CommandContext pContext) { if(BotLibrary.CheckIsRespond(pContext) == false) return; await BotLibrary.DoStartTutorial( pContext ); }
-		[Command( "hi" )]
-		public async Task Start_Tutorial_2( CommandContext pContext ) { if (BotLibrary.CheckIsRespond( pContext ) == false) return; await BotLibrary.DoStartTutorial( pContext ); }
-		[Command( "hello" )]
-		public async Task Start_Tutorial_3( CommandContext pContext ) { if (BotLibrary.CheckIsRespond( pContext ) == false) return; await BotLibrary.DoStartTutorial( pContext ); }
-		[Command( "안녕" )]
-		public async Task Start_Tutorial_4( CommandContext pContext ) { if (BotLibrary.CheckIsRespond( pContext ) == false) return; await BotLibrary.DoStartTutorial( pContext ); }
-		[Command( "튜토리얼" )]
-		public async Task Start_Tutorial_5( CommandContext pContext ) { if (BotLibrary.CheckIsRespond( pContext ) == false) return; await BotLibrary.DoStartTutorial( pContext ); }
-
 		static async Task Event_SearchStart( CommandContext pContext, string strSearchWorld, OnSearch OnSearch, string strSearchURL, string strCategoryName, bool bPrintSearchURL = false )
 		{
 			DiscordEmbedBuilder pResult = null;
