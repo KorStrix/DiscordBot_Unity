@@ -16,9 +16,9 @@
 			<Field FieldName = "naver [검색어]" FieldValue = "Naver에서 검색합니다." />
 			<Field FieldName = "google [검색어]" FieldValue = "Google에서 검색합니다." />
 			
-			<Field FieldName = "dic [검색어]" FieldValue = "네이버 사전에서 검색합니다." />
-			<Field FieldName = "dicen [검색어]" FieldValue = "네이버 영어사전에서 검색한 뒤 뜻을 출력합니다." />
-			<Field FieldName = "dicko [검색어]" FieldValue = "네이버 국어사전에서 검색한 뒤 뜻을 출력합니다." />
+			<!-- <Field FieldName = "dic [검색어]" FieldValue = "네이버 사전에서 검색합니다." /> -->
+			<Field FieldName = "en [검색어]" FieldValue = "네이버 영어사전에서 검색한 뒤 뜻을 출력합니다." />
+			<Field FieldName = "ko [검색어]" FieldValue = "네이버 국어사전에서 검색한 뒤 뜻을 출력합니다." />
 
 			</Fields>
 	</Tutorial>

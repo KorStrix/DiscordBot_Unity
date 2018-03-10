@@ -1,0 +1,12 @@
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\obj\Release\Bot_Library.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\obj\Release\Bot_Library.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\bin\Release\BotLibrary.dll
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\bin\Release\BotLibrary.pdb
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\bin\Release\DSharpPlus.CommandsNext.dll
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\bin\Release\DSharpPlus.dll
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\bin\Release\Newtonsoft.Json.dll
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\bin\Release\DSharpPlus.xml
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\bin\Release\DSharpPlus.CommandsNext.xml
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\bin\Release\Newtonsoft.Json.xml
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\obj\Release\BotLibrary.dll
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\obj\Release\BotLibrary.pdb

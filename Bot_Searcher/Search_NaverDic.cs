@@ -11,30 +11,30 @@ namespace Bot_Searcher
 {
 	partial class Command_Search
 	{
-		static string strURL_NaverDic_General = "http://dic.naver.com/search.nhn?dicQuery={0}&query={0}&target=dic&ie=utf8&query_utf=&isOnlyViewEE=";
+		//static string strURL_NaverDic_General = "http://dic.naver.com/search.nhn?dicQuery={0}&query={0}&target=dic&ie=utf8&query_utf=&isOnlyViewEE=";
 		static string strURL_NaverDic_English = "http://endic.naver.com/search.nhn?sLn=kr&isOnlyViewEE=N&query={0}";
 		static string strURL_NaverDic_Korea = "http://krdic.naver.com/search.nhn?query={0}&kind=all";
 
-		[Command( "dic" )]
-		public async Task SearchStart_NaverDic( CommandContext pContext, string strSearchWord )
-		{
-			if (CBot.CheckIsRespond( pContext ) == false) return;
+		//[Command( "dic" )]
+		//public async Task SearchStart_NaverDic( CommandContext pContext, string strSearchWord )
+		//{
+		//	if (CBot.CheckIsRespond( pContext ) == false) return;
 
-			await Event_SearchStart( pContext, strSearchWord, Search_NaverDic, string.Format( strURL_NaverDic_General, strSearchWord ), "Naver 사전" );
-		}
+		//	await Event_SearchStart( pContext, strSearchWord, Search_NaverDic, string.Format( strURL_NaverDic_General, strSearchWord ), "Naver 사전" );
+		//}
 
-		[Command( "dicen" )]
+		[Command( "en" )]
 		public async Task SearchStart_NaverDic_English( CommandContext pContext, string strSearchWord )
 		{
-			if (CBot.CheckIsRespond( pContext ) == false) return;
+			if (CBot.CheckIsRespond( pContext.Channel) == false) return;
 
 			await Event_SearchStart( pContext, strSearchWord, Search_NaverDic_En, string.Format( strURL_NaverDic_English, strSearchWord ), "Naver 영어사전", true );
 		}
 
-		[Command( "dicko" )]
+		[Command( "ko" )]
 		public async Task SearchStart_NaverDic_Korean( CommandContext pContext, string strSearchWord )
 		{
-			if (CBot.CheckIsRespond( pContext ) == false) return;
+			if (CBot.CheckIsRespond( pContext.Channel) == false) return;
 
 			await Event_SearchStart( pContext, strSearchWord, Search_NaverDic_Ko, string.Format( strURL_NaverDic_Korea, strSearchWord ), "Naver 국어사전", true );
 		}

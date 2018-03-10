@@ -2,6 +2,7 @@
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Entities;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
@@ -17,6 +18,7 @@ namespace Strix
 
         static public void DoInitClient(out DiscordClient pClient, out CommandsNextModule pCommandModule)
         {
+            XML_Config.Load();
             CBot.pClient = new DiscordClient(new DiscordConfiguration
             {
                 Token = XML_Config.pConfig.strBotToken,
@@ -31,11 +33,12 @@ namespace Strix
             CommandsNextConfiguration pConfiguration = new CommandsNextConfiguration();
             if (string.IsNullOrEmpty(XML_Config.pConfig.strCall_ID) == false)
                 pConfiguration.StringPrefix = XML_Config.pConfig.strCall_ID;
-            else
-                pConfiguration.StringPrefix = " ";
+            //else
+            //    ProcNotStringPrefix(pConfiguration);
 
             pCommands = CBot.pClient.UseCommandsNext(pConfiguration);
             pCommands.RegisterCommands<Commands_Tutorial>();
+
 
             pClient = CBot.pClient;
             pCommandModule = pCommands;
@@ -53,17 +56,42 @@ namespace Strix
 
 #if !DEBUG
             await (
-                await pClient.GetChannelAsync(CXMLParser.pConfig.strLobbyChannelID).ConfigureAwait(false))
-                .SendMessageAsync(CXMLParser.pConfig.strBootingMessage);
+                await pClient.GetChannelAsync(XML_Config.pConfig.strLobbyChannelID).ConfigureAwait(false))
+                .SendMessageAsync(XML_Config.pConfig.strBootingMessage);
 #endif
         }
 #pragma warning restore 1998
 
-		static public bool CheckIsRespond( CommandContext pContext )
-		{
+        //static private IReadOnlyDictionary<string, Command> _mapCommand;
+
+        //static private void ProcNotStringPrefix(CommandsNextConfiguration pConfiguration)
+        //{
+        //    pConfiguration.StringPrefix = "SE";
+        //    pConfiguration.SelfBot = true;
+
+        //    pClient.MessageCreated += async eMessageArgs =>
+        //    {
+        //        if (CheckIsRespond(eMessageArgs.Channel) == false) return;
+
+        //        if(_mapCommand == null)
+        //            _mapCommand = pCommands.RegisteredCommands;
+
+        //        string strCommand = eMessageArgs.Message.Content;
+        //        string[] arrCommand = strCommand.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+
+        //        Command pCommand = null;
+        //        if (_mapCommand.TryGetValue(arrCommand[0], out pCommand) == false)
+        //            return;
+
+        //        await eMessageArgs.Channel.SendMessageAsync("SE " + strCommand);
+        //    };
+        //}
+
+        static public bool CheckIsRespond(DiscordChannel pChannel)
+        {
             if (string.IsNullOrEmpty(XML_Config.pConfig.strCall_Channel)) return true;
 
-			return pContext.Channel.Name.ToLower().Contains( XML_Config.pConfig.strCall_Channel );
-		}
-	}
+            return pChannel.Name.ToLower().Contains(XML_Config.pConfig.strCall_Channel);
+        }
+    }
 }

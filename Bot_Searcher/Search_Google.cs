@@ -14,7 +14,7 @@ namespace Bot_Searcher
 		[Command( "google" )]
 		public async Task SearchStart_Google( CommandContext pContext, string strSearchWord )
 		{
-			if (CBot.CheckIsRespond( pContext ) == false) return;
+			if (CBot.CheckIsRespond( pContext.Channel) == false) return;
 
 			await Event_SearchStart( pContext, strSearchWord, Search_Google, strURL_Google, "Google" );
 		}

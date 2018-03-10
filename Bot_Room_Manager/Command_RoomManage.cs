@@ -10,10 +10,10 @@ namespace Bot_Room_Manager
 {
     class Command_RoomManage
     {
-        [Command("setrole")]
-        public async Task DoSetRole(CommandContext pContext, string strRoleName)
-        {
-            await pContext.Channel.SendMessageAsync("strRole" + strRoleName);
-        }
+        //[Command("setrole")]
+        //public async Task DoSetRole(CommandContext pContext, string strRoleName)
+        //{
+        //    await pContext.Channel.SendMessageAsync("strRole" + strRoleName);
+        //}
     }
 }

@@ -42,3 +42,5 @@ C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Searcher\obj\Release\Bot_S
 C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Searcher\obj\Release\Bot_Searcher.csproj.CoreCompileInputs.cache
 C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Searcher\obj\Release\Bot_Searcher.exe
 C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Searcher\obj\Release\Bot_Searcher.pdb
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Searcher\bin\Release\BotLibrary.dll
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Searcher\bin\Release\BotLibrary.pdb

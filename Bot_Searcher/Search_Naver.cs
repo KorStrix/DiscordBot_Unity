@@ -14,7 +14,7 @@ namespace Bot_Searcher
 		[Command( "naver" )]
 		public async Task SearchStart_Naver( CommandContext pContext, string strSearchWord )
 		{
-			if (CBot.CheckIsRespond( pContext ) == false) return;
+			if (CBot.CheckIsRespond( pContext.Channel) == false) return;
 
 			await Event_SearchStart( pContext, strSearchWord, Search_Naver, string.Format( strURL_Naver, strSearchWord ), "Naver" );
 		}

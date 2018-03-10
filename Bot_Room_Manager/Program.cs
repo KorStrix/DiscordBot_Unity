@@ -16,7 +16,6 @@ namespace Bot_Room_Manager
 
         static void Main(string[] args)
         {
-            Strix.XML_Config.Load();
             MainAsync(args).ConfigureAwait(false).GetAwaiter().GetResult();
         }
 

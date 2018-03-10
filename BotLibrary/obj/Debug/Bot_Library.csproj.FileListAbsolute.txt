@@ -9,3 +9,4 @@ C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\bin\Debug\Newtonsof
 C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\obj\Debug\Bot_Library.csproj.CoreCompileInputs.cache
 C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\obj\Debug\BotLibrary.dll
 C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\obj\Debug\BotLibrary.pdb
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\obj\Debug\Bot_Library.csprojResolveAssemblyReference.cache

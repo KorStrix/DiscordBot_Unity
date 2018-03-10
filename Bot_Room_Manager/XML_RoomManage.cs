@@ -11,11 +11,11 @@ namespace Bot_Room_Manager
     {
         public class SConfig
         {
-            [XmlElement("Token")]
-            public string strBotToken;
+            [XmlElement("WelcomeTitle")]
+            public string strWelcomeTitle;
 
             [XmlElement("CallID")]
-            public string strCall_ID;
+            public string strDescription;
         }
 
         static public SConfig pConfig { get; private set; }
