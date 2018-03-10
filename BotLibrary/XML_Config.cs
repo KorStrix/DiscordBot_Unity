@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DSharpPlus.CommandsNext;
+using DSharpPlus.Entities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -54,22 +56,22 @@ namespace Strix
 
             static public SConfig CreateDummy()
             {
-                SConfig pConfigDummy = new SConfig();
-                pConfigDummy.strBotToken = "토큰";
-                pConfigDummy.strCall_ID = "호출 명령어";
-                pConfigDummy.strCall_Channel = "제한 채널";
-                pConfigDummy.strLobbyChannelID = 0;
-                pConfigDummy.strBootingMessage = "부팅메세지";
+                SConfig pDummy = new SConfig();
+                pDummy.strBotToken = "토큰";
+                pDummy.strCall_ID = "호출 명령어";
+                pDummy.strCall_Channel = "제한 채널";
+                pDummy.strLobbyChannelID = 0;
+                pDummy.strBootingMessage = "부팅메세지";
 
-                pConfigDummy.pTutorial.strTitle = "로봇이름 - 튜토리얼";
-                pConfigDummy.pTutorial.arrField = new STutorial_Field[1]
+                pDummy.pTutorial.strTitle = "로봇이름 - 튜토리얼";
+                pDummy.pTutorial.arrField = new STutorial_Field[1]
                 { new STutorial_Field("기능", "설명") };
 
-                return pConfigDummy;
+                return pDummy;
             }
 
 
-            [XmlElement(ElementName = "Tutorial")]
+            [XmlElement("Tutorial")]
             public STutorial pTutorial = new STutorial();
         }
 

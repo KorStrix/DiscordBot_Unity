@@ -5,3 +5,11 @@ C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\obj\Release\B
 C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\obj\Release\Bot_Room_Manager.csproj.CoreCompileInputs.cache
 C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\obj\Release\Bot_Room_Manager.exe
 C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\obj\Release\Bot_Room_Manager.pdb
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Release\BotLibrary.dll
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Release\DSharpPlus.CommandsNext.dll
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Release\DSharpPlus.dll
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Release\Newtonsoft.Json.dll
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Release\BotLibrary.pdb
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Release\DSharpPlus.xml
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Release\DSharpPlus.CommandsNext.xml
+C:\Users\user\Desktop\Project\discordbot_searcher\Bot_Room_Manager\bin\Release\Newtonsoft.Json.xml

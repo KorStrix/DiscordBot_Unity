@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <SConfig>
 	<Token>NDE4MDA3NDA0NTQyNjg5MzAx.DXkULw.ujUHfDMzu7StAAwRIPoC_jt2Q9Q</Token>
-	<CallID>se</CallID>
+	<CallID></CallID>
 	<CallChannel>searcher</CallChannel>
 	<LobbyChannelID>417454891670437900</LobbyChannelID>
 	
@@ -10,7 +10,8 @@
 	<Tutorial Title = "'Se'archer - 검색도우미 튜토리얼 입니다.">
 		<Fields>
 			<Field FieldName = "기능" FieldValue = "검색을 도와주는 로봇입니다." />
-			<Field FieldName = "호출방법" FieldValue = "Searcher -에서 앞글자 'se'를 땄습니다." />
+			<!-- <Field FieldName = "호출방법" FieldValue = "Searcher -에서 앞글자 'se'를 땄습니다." /> -->
+			<Field FieldName = "호출방법" FieldValue = "하단의 검색어와 함께 사용하시면 됩니다." /> -->
 
 			<Field FieldName = "unity [검색어]" FieldValue = "Unity Script API 사이트에서 검색한 뒤 리스트의 첫번째 결과를 출력합니다." />
 			<Field FieldName = "naver [검색어]" FieldValue = "Naver에서 검색합니다." />

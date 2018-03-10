@@ -13,15 +13,15 @@ namespace Strix
     public class Commands_Tutorial
     {
         [Command("tutorial")]
-        public async Task Start_Tutorial_1(CommandContext pContext) { if (CBot.CheckIsRespond(pContext.Channel) == false) return; await DoStartTutorial(pContext); }
+        public async Task Start_Tutorial_1(CommandContext pContext) { if (CheckIsRespond(pContext.Channel) == false) return; await DoStartTutorial(pContext); }
         [Command("hi")]
-        public async Task Start_Tutorial_2(CommandContext pContext) { if (CBot.CheckIsRespond(pContext.Channel) == false) return; await DoStartTutorial(pContext); }
+        public async Task Start_Tutorial_2(CommandContext pContext) { if (CheckIsRespond(pContext.Channel) == false) return; await DoStartTutorial(pContext); }
         [Command("hello")]
-        public async Task Start_Tutorial_3(CommandContext pContext) { if (CBot.CheckIsRespond(pContext.Channel) == false) return; await DoStartTutorial(pContext); }
+        public async Task Start_Tutorial_3(CommandContext pContext) { if (CheckIsRespond(pContext.Channel) == false) return; await DoStartTutorial(pContext); }
         [Command("안녕")]
-        public async Task Start_Tutorial_4(CommandContext pContext) { if (CBot.CheckIsRespond(pContext.Channel) == false) return; await DoStartTutorial(pContext); }
+        public async Task Start_Tutorial_4(CommandContext pContext) { if (CheckIsRespond(pContext.Channel) == false) return; await DoStartTutorial(pContext); }
         [Command("튜토리얼")]
-        public async Task Start_Tutorial_5(CommandContext pContext) { if (CBot.CheckIsRespond(pContext.Channel) == false) return; await DoStartTutorial(pContext); }
+        public async Task Start_Tutorial_5(CommandContext pContext) { if (CheckIsRespond(pContext.Channel) == false) return; await DoStartTutorial(pContext); }
 
         static public async Task DoStartTutorial(CommandContext pContext)
         {

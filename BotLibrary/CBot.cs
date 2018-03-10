@@ -33,8 +33,8 @@ namespace Strix
             CommandsNextConfiguration pConfiguration = new CommandsNextConfiguration();
             if (string.IsNullOrEmpty(XML_Config.pConfig.strCall_ID) == false)
                 pConfiguration.StringPrefix = XML_Config.pConfig.strCall_ID;
-            //else
-            //    ProcNotStringPrefix(pConfiguration);
+            else
+                ProcNotStringPrefix(pConfiguration);
 
             pCommands = CBot.pClient.UseCommandsNext(pConfiguration);
             pCommands.RegisterCommands<Commands_Tutorial>();
@@ -62,30 +62,35 @@ namespace Strix
         }
 #pragma warning restore 1998
 
-        //static private IReadOnlyDictionary<string, Command> _mapCommand;
+        static private IReadOnlyDictionary<string, Command> _mapCommand;
 
-        //static private void ProcNotStringPrefix(CommandsNextConfiguration pConfiguration)
-        //{
-        //    pConfiguration.StringPrefix = "SE";
-        //    pConfiguration.SelfBot = true;
+        static private void ProcNotStringPrefix(CommandsNextConfiguration pConfiguration)
+        {
+            pConfiguration.CustomPrefixPredicate = CheckPrefixCustom;
+            pConfiguration.StringPrefix = "Send Self";
 
-        //    pClient.MessageCreated += async eMessageArgs =>
-        //    {
-        //        if (CheckIsRespond(eMessageArgs.Channel) == false) return;
+            pClient.MessageCreated += async eMessageArgs =>
+            {
+                if (CheckIsRespond(eMessageArgs.Channel) == false) return;
 
-        //        if(_mapCommand == null)
-        //            _mapCommand = pCommands.RegisteredCommands;
+                if (_mapCommand == null)
+                    _mapCommand = pCommands.RegisteredCommands;
 
-        //        string strCommand = eMessageArgs.Message.Content;
-        //        string[] arrCommand = strCommand.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+                string strCommand = eMessageArgs.Message.Content;
+                string[] arrCommand = strCommand.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
 
-        //        Command pCommand = null;
-        //        if (_mapCommand.TryGetValue(arrCommand[0], out pCommand) == false)
-        //            return;
+                Command pCommand = null;
+                if (_mapCommand.TryGetValue(arrCommand[0], out pCommand) == false)
+                    return;
 
-        //        await eMessageArgs.Channel.SendMessageAsync("SE " + strCommand);
-        //    };
-        //}
+                await eMessageArgs.Channel.SendMessageAsync("Send Self " + strCommand);
+            };
+        }
+
+        static async Task<int> CheckPrefixCustom(DiscordMessage pMessage)
+        {
+            return 0;
+        }
 
         static public bool CheckIsRespond(DiscordChannel pChannel)
         {

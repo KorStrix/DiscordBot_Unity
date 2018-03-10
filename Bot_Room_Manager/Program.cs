@@ -14,6 +14,8 @@ namespace Bot_Room_Manager
         static private DiscordClient _pClient;
         static CommandsNextModule _pCommands_Search;
 
+        static XML_RoomManage.SRoomManage _pRoomManager;
+
         static void Main(string[] args)
         {
             MainAsync(args).ConfigureAwait(false).GetAwaiter().GetResult();
@@ -21,6 +23,7 @@ namespace Bot_Room_Manager
 
         static async Task MainAsync(string[] args)
         {
+            _pRoomManager = XML_RoomManage.Load();
             Strix.CBot.DoInitClient(out _pClient, out _pCommands_Search);
 
             _pClient.GuildMemberAdded += _pClient_GuildMemberAdded;
@@ -33,13 +36,33 @@ namespace Bot_Room_Manager
 
         private static async Task _pClient_GuildMemberAdded(DSharpPlus.EventArgs.GuildMemberAddEventArgs e)
         {
+            await ProcWelComeMessage(e.Member, Strix.CBot.pLobbyChannel);
+        }
+
+        public static async Task ProcWelComeMessage(DiscordMember pMember, DiscordChannel pChannel)
+        {
             DiscordEmbedBuilder pEmbedBuilder_WellCome = new DiscordEmbedBuilder();
             pEmbedBuilder_WellCome.WithColor(DiscordColor.Cyan).
-            WithTitle($"어서오세요. 유니티 개발자 모임에 오신것을 환영합니다!").
-            WithDescription("시간 나실때 개인 메세지함을 확인해주세요.").WithDescription("test");
+            WithTitle(_pRoomManager.strWelcomeTitle).
+            WithDescription(_pRoomManager.strWelcomeText_ForNewMan);
 
-            await Strix.CBot.pLobbyChannel.SendMessageAsync(null, false, pEmbedBuilder_WellCome);
-            await (e.Member.CreateDmChannelAsync().GetAwaiter().GetResult().SendMessageAsync("test"));
+            await pChannel.SendMessageAsync($"{pMember.Mention} {_pRoomManager.strWelcomeText_ForEveryone}");
+            await pChannel.SendMessageAsync(null, false, pEmbedBuilder_WellCome);
+
+            await (pMember.CreateDmChannelAsync().GetAwaiter().GetResult().SendMessageAsync(null, false, CreateWelcomeDM(pMember)));
+        }
+
+        static public DiscordEmbedBuilder CreateWelcomeDM(DiscordMember pMember)
+        {
+            var pConfig = XML_RoomManage.Load();
+
+            DiscordEmbedBuilder pEmbedBuilder = new DiscordEmbedBuilder();
+            pEmbedBuilder
+                .WithColor(DiscordColor.Green)
+                .WithAuthor(pConfig.strWelcomeTitle_DM)
+                .WithDescription(pConfig.strWelcomeText_DM);
+
+            return pEmbedBuilder;
         }
     }
 }

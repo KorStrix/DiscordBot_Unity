@@ -18,7 +18,7 @@ namespace Strix
             string strFilePath = Directory.GetCurrentDirectory() + "//" + strFileName;
             if (File.Exists(strFilePath) == false)
             {
-                Save(strFilePath, OnGenerateDummy);
+                Save(strFilePath, OnGenerateDummy());
             }
 
             using (var stream = new FileStream(Directory.GetCurrentDirectory() + "//" + strFileName, FileMode.Open))
