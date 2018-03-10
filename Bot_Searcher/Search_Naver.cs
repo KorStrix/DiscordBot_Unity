@@ -21,12 +21,14 @@ namespace Bot_Searcher
 
 		static DiscordEmbedBuilder Search_Naver( string strURL, string strSearchWord, DateTime pDateTimeStart )
 		{
-			// 본래 이렇게 해야 정상이지만, 빠른 속도를 위해 주석처리
-			//IWebElement pElement_Search = pDriver.FindElement( By.Id( "query" ) );
-			//pElement_Search.SendKeys( strSearchWord );
-			//pDriver.FindElement( By.Id( "search_btn" ) ).Click();
+            // 본래 이렇게 해야 정상이지만, 빠른 속도를 위해 주석처리			
+            //IWebDriver pDriver = new ChromeDriver();
+            //pDriver.Url = strURL;
+            //IWebElement pElement_Search = pDriver.FindElement( By.Id( "query" ) );
+            //pElement_Search.SendKeys( strSearchWord );
+            //pDriver.FindElement( By.Id( "search_btn" ) ).Click();
 
-			DiscordEmbedBuilder pEmbedBuilder = new DiscordEmbedBuilder();
+            DiscordEmbedBuilder pEmbedBuilder = new DiscordEmbedBuilder();
 			try
 			{
 				ProcWrite_Result_Success( pEmbedBuilder, pDateTimeStart, "검색결과", strSearchWord, strURL );

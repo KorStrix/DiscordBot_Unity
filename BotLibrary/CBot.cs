@@ -71,19 +71,40 @@ namespace Strix
 
             pClient.MessageCreated += async eMessageArgs =>
             {
-                if (CheckIsRespond(eMessageArgs.Channel) == false) return;
+                try
+                {
+                    if (CheckIsRespond(eMessageArgs.Channel) == false) return;
 
-                if (_mapCommand == null)
-                    _mapCommand = pCommands.RegisteredCommands;
+                    if (_mapCommand == null)
+                        _mapCommand = pCommands.RegisteredCommands;
 
-                string strCommand = eMessageArgs.Message.Content;
-                string[] arrCommand = strCommand.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+                    string strCommand = eMessageArgs.Message.Content;
+                    string[] arrCommand = strCommand.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
 
-                Command pCommand = null;
-                if (_mapCommand.TryGetValue(arrCommand[0], out pCommand) == false)
-                    return;
+                    Command pCommand = null;
+                    if (_mapCommand.TryGetValue(arrCommand[0], out pCommand) == false)
+                        return;
 
-                await eMessageArgs.Channel.SendMessageAsync("Send Self " + strCommand);
+                    await eMessageArgs.Channel.SendMessageAsync("Send Self " + strCommand);
+                }
+                catch
+                {
+                    if (CheckIsRespond(eMessageArgs.Channel) == false) return;
+
+                    if (_mapCommand == null)
+                        _mapCommand = pCommands.RegisteredCommands;
+
+                    string strCommand = eMessageArgs.Message.Content;
+                    string[] arrCommand = strCommand.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+                    if (arrCommand.Length == 0)
+                        return;
+
+                    Command pCommand = null;
+                    if (_mapCommand.TryGetValue(arrCommand[0], out pCommand) == false)
+                        return;
+
+                    await eMessageArgs.Channel.SendMessageAsync("Send Self " + strCommand);
+                }
             };
         }
 

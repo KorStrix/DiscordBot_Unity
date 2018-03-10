@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<SConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Token>NDIwMTM2NTY4MTM3OTczNzYw.DYTnGA.XeavyXX-rIbEx76ntQwp70OOskk</Token>
+  <CallID></CallID>
+  <CallChannel>paperboy</CallChannel>
+  <LobbyChannelID>417454891670437900</LobbyChannelID>
+  <BootingMessage>신문배달부 준비완료.</BootingMessage>
+  <Tutorial Title="Paper boy 신문배달부 튜토리얼입니다.">
+    <Fields>
+      <Field FieldName="기능" FieldValue="설명" />
+    </Fields>
+  </Tutorial>
+</SConfig>

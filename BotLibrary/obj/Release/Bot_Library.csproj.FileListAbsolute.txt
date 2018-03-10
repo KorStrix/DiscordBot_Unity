@@ -10,3 +10,7 @@ C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\bin\Release\DSharpP
 C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\bin\Release\Newtonsoft.Json.xml
 C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\obj\Release\BotLibrary.dll
 C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\obj\Release\BotLibrary.pdb
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\bin\Release\DSharpPlus.Interactivity.dll
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\bin\Release\WebDriver.dll
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\bin\Release\DSharpPlus.Interactivity.xml
+C:\Users\user\Desktop\Project\discordbot_searcher\BotLibrary\bin\Release\WebDriver.xml

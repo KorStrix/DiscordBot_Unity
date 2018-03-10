@@ -12,7 +12,7 @@ namespace Bot_Room_Manager
     class Program
     {
         static private DiscordClient _pClient;
-        static CommandsNextModule _pCommands_Search;
+        static CommandsNextModule _pCommands;
 
         static XML_RoomManage.SRoomManage _pRoomManager;
 
@@ -24,11 +24,11 @@ namespace Bot_Room_Manager
         static async Task MainAsync(string[] args)
         {
             _pRoomManager = XML_RoomManage.Load();
-            Strix.CBot.DoInitClient(out _pClient, out _pCommands_Search);
+            Strix.CBot.DoInitClient(out _pClient, out _pCommands);
 
             _pClient.GuildMemberAdded += _pClient_GuildMemberAdded;
 
-            _pCommands_Search.RegisterCommands<Command_RoomManage>();
+            _pCommands.RegisterCommands<Command_RoomManage>();
 
             await _pClient.ConnectAsync();
             await Task.Delay(-1);

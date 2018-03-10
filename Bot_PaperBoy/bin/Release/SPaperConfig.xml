@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<SPaperConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PaperConfigDetailList>
+    <PaperConfigDetail CrawlingKey="게임메카" 		IsUsage = "true"	Hour="1" Minute="0" Second="0" ReportChannelID = "421954579857408000"/>
+    <PaperConfigDetail CrawlingKey="디스이즈게임즈" 	IsUsage = "true"	Hour="1" Minute="0" Second="0" ReportChannelID = "421954579857408000" />
+  </PaperConfigDetailList>
+</SPaperConfig>

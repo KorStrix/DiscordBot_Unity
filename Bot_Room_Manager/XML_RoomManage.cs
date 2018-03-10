@@ -27,7 +27,6 @@ namespace Bot_Room_Manager
             [XmlElement("WelcomeText_DM")]
             public string strWelcomeText_DM;
 
-
             static public SRoomManage CreateDummy()
             {
                 SRoomManage pDummy = new SRoomManage();
