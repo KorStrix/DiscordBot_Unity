@@ -30,6 +30,10 @@ namespace Bot_PaperBoy
             _mapCrawling.Add(XML_Paper.ECrawlingKey.게임메카, Command_Crawling_GameNews.DoCrawling_GameMeca);
             _mapCrawling.Add(XML_Paper.ECrawlingKey.디스이즈게임즈, Command_Crawling_GameNews.DoCrawling_ThisIsGame);
 
+            _mapCrawling.Add(XML_Paper.ECrawlingKey.네이버카페_유니티허브_스터디, Command_Crawling_NaverCafe.DoCrawling_NaverCafe_UnityHub_Study);
+            _mapCrawling.Add(XML_Paper.ECrawlingKey.네이버카페_유니티허브_구인구직, Command_Crawling_NaverCafe.DoCrawling_Naver_UnityHub_Hire);
+            _mapCrawling.Add(XML_Paper.ECrawlingKey.네이버카페_인디터_팀원모집, Command_Crawling_NaverCafe.DoCrawling_Naver_IndieTer_Hire);
+
             _pCommands.RegisterCommands<Command_Crawling_GameNews>();
             _pCommands.RegisterCommands<Command_Crawling_NaverCafe>();
 

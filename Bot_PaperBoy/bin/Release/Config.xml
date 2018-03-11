@@ -4,7 +4,7 @@
   <CallID></CallID>
   <CallChannel>paperboy</CallChannel>
   <LobbyChannelID>417454891670437900</LobbyChannelID>
-  <BootingMessage>신문배달부 준비완료.</BootingMessage>
+  <BootingMessage></BootingMessage>
   <Tutorial Title="Paper boy 신문배달부 튜토리얼입니다.">
     <Fields>
       <Field FieldName="기능" FieldValue="설명" />

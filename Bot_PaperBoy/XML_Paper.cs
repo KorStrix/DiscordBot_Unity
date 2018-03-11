@@ -15,6 +15,12 @@ namespace Bot_PaperBoy
             게임메카,
             [XmlEnum("디스이즈게임즈")]
             디스이즈게임즈,
+            [XmlEnum("네이버카페_유니티허브_스터디")]
+            네이버카페_유니티허브_스터디,
+            [XmlEnum("네이버카페_유니티허브_구인구직")]
+            네이버카페_유니티허브_구인구직,
+            [XmlEnum("네이버카페_인디터_팀원모집")]
+            네이버카페_인디터_팀원모집,
         }
 
         public class SPaperConfig
