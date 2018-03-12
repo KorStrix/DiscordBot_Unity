@@ -19,13 +19,13 @@ namespace Bot_PaperBoy
         static public readonly string const_strGameMeca = "http://www.gamemeca.com/news.php";
         static public readonly string const_strThisIsGame = "http://www.thisisgame.com/";
 
-        [Command("test_gamemeca")]
+        [Command("test11")]
         public async Task Crawling_GameMesca(CommandContext pContext)
         {
             await DoCrawling_GameMeca(pContext.Channel);
         }
 
-        [Command("test_thisisgame")]
+        [Command("test12")]
         public async Task Crawling_ThisIsGame(CommandContext pContext)
         {
             await DoCrawling_ThisIsGame(pContext.Channel);

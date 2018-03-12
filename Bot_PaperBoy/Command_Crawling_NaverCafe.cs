@@ -86,7 +86,7 @@ namespace Bot_PaperBoy
             pEmbed.
                 WithColor(pColor).
                 WithTitle(strTitle).
-                WithDescription(strURL);
+                WithUrl(strURL);
 
             foreach (IWebElement pElement in arrElement)
             {
@@ -102,10 +102,10 @@ namespace Bot_PaperBoy
 
                 string strLink = pElementLink.GetAttribute("href");
                 string[] arrDateAndViewCount = arrName[(int)ENaverIndex.작성일및조회수].Split(new String[] { "." }, StringSplitOptions.None);
-                
+
                 pEmbed.AddField(
-                    $"[{arrDateAndViewCount[0]}.{arrDateAndViewCount[1]}.{arrDateAndViewCount[2]}] {arrName[(int)ENaverIndex.글제목]}. 글쓴이 : [{arrName[(int)ENaverIndex.아이디]}]",
-                    strLink);
+                    $"{arrName[(int)ENaverIndex.글제목]}",
+                    $"ㄴ[{arrDateAndViewCount[0]}.{arrDateAndViewCount[1]}.{arrDateAndViewCount[2]}] 글쓴이 : [{arrName[(int)ENaverIndex.아이디]}] [Link 바로가기]({strLink})");
             }
 
             return pEmbed;

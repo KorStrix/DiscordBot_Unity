@@ -91,7 +91,7 @@ namespace Bot_PaperBoy
             pEmbed.
                 WithColor(pColor).
                 WithTitle(strTitle).
-                WithDescription(strURL);
+                WithUrl(strURL);
 
             if (bUseNumbering)
             {
@@ -102,7 +102,7 @@ namespace Bot_PaperBoy
                         continue;
 
                     string strName = $"{iRanking++}. {pElement.Text}";
-                    string strValue = pElement.GetAttribute("href");
+                    string strValue = $"ㄴ[Link 바로가기]({pElement.GetAttribute("href")})";
                     pEmbed.AddField(strName, strValue);
                 }
             }
@@ -114,7 +114,7 @@ namespace Bot_PaperBoy
                         continue;
 
                     string strName = pElement.Text;
-                    string strValue = pElement.GetAttribute("href");
+                    string strValue = $"ㄴ[Link 바로가기]({pElement.GetAttribute("href")})";
                     pEmbed.AddField(strName, strValue);
                 }
             }
