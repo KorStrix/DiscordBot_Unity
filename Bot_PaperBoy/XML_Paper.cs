@@ -34,6 +34,16 @@ namespace Bot_PaperBoy
                 [XmlAttribute("IsUsage")]
                 public bool bIsUsage = true;
 
+                [XmlAttribute("ReportChannelID")]
+                public ulong iReportChannelID;
+
+                [XmlArray("PaperShowTimeList"), XmlArrayItem("PaperShowTime")]
+                public SPaperShowTime[] arrTime;
+            }
+
+            [XmlRoot("PaperShowTime")]
+            public class SPaperShowTime
+            {
                 [XmlAttribute("Hour")]
                 public int iHour = 0;
 
@@ -42,9 +52,6 @@ namespace Bot_PaperBoy
 
                 [XmlAttribute("Second")]
                 public int iSecond = 0;
-
-                [XmlAttribute("ReportChannelID")]
-                public ulong iReportChannelID;
             }
 
             [XmlArray("PaperConfigDetailList"), XmlArrayItem("PaperConfigDetail")]

@@ -55,11 +55,21 @@ namespace Bot_PaperBoy
                 var pConfig = arrConfig[i];
                 if (pConfig.bIsUsage == false) continue;
 
-                if(CheckIsCorrectTime(sDateTime.Hour, pConfig.iHour) &&
-                   CheckIsCorrectTime(sDateTime.Minute, pConfig.iMinute) &&
-                   CheckIsCorrectTime(sDateTime.Second, pConfig.iSecond))
+                bool bIsCorrect = false;
+                for(int j = 0; j < pConfig.arrTime.Length; j++)
                 {
-                    if(_mapCrawling.ContainsKey(pConfig.eReportChannelID_GameNews) == false)
+                    if (CheckIsCorrectTime(sDateTime.Hour, pConfig.arrTime[j].iHour) &&
+                        CheckIsCorrectTime(sDateTime.Minute, pConfig.arrTime[j].iMinute) &&
+                        CheckIsCorrectTime(sDateTime.Second, pConfig.arrTime[j].iSecond))
+                    {
+                        bIsCorrect = true;
+                        break;
+                    }
+                }
+
+                if(bIsCorrect)
+                {
+                    if (_mapCrawling.ContainsKey(pConfig.eReportChannelID_GameNews) == false)
                     {
                         Console.WriteLine($"{pConfig.eReportChannelID_GameNews} is Not Contain !!");
                         continue;
