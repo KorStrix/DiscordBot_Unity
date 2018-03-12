@@ -105,7 +105,7 @@ namespace Bot_PaperBoy
 
                 pEmbed.AddField(
                     $"{arrName[(int)ENaverIndex.글제목]}",
-                    $"ㄴ[{arrDateAndViewCount[0]}.{arrDateAndViewCount[1]}.{arrDateAndViewCount[2]}] 글쓴이 : [{arrName[(int)ENaverIndex.아이디]}] [Link 바로가기]({strLink})");
+                    $"ㄴ [Link 바로가기]({strLink}) 글쓴이 : [{arrName[(int)ENaverIndex.아이디]}][{arrDateAndViewCount[0]}.{arrDateAndViewCount[1]}.{arrDateAndViewCount[2]}]");
             }
 
             return pEmbed;

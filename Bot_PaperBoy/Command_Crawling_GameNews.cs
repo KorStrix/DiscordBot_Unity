@@ -54,7 +54,7 @@ namespace Bot_PaperBoy
             IWebElement pElement_ListParents = pDriver.FindElement(By.ClassName("side-comp-body"));
 
             var arrElementRanking = pElement_ListParents.FindElements(By.TagName("a"));
-            var pEmbedBuilder = Program.Crawling_Find(DiscordColor.Blue, arrElementRanking, "디스이스게임 많이본 기사 리스트입니다.", const_strThisIsGame, false);
+            var pEmbedBuilder = Program.Crawling_Find(DiscordColor.Green, arrElementRanking, "디스이스게임 많이본 기사 리스트입니다.", const_strThisIsGame, false);
 
             await pChannel.SendMessageAsync(null, false, pEmbedBuilder);
             pDriver.Close();
