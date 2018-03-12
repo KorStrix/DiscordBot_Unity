@@ -2,7 +2,7 @@
 <SConfig>
 	<Token>NDE4MDA3NDA0NTQyNjg5MzAx.DXkULw.ujUHfDMzu7StAAwRIPoC_jt2Q9Q</Token>
 	<CallID></CallID>
-	<CallChannel>searcher</CallChannel>
+	<CallChannel>검색도우미</CallChannel>
 	<LobbyChannelID>417454891670437900</LobbyChannelID>
 	
 	<BootingMessage>검색도우미 준비 완료.</BootingMessage>
