@@ -19,15 +19,19 @@ namespace Bot_PaperBoy
         static public readonly string const_strGameMeca = "http://www.gamemeca.com/news.php";
         static public readonly string const_strThisIsGame = "http://www.thisisgame.com/";
 
-        [Command("test11")]
+        [Command("test_gm")]
         public async Task Crawling_GameMesca(CommandContext pContext)
         {
+            if (Strix.CBot.CheckIsRespond(pContext.Channel) == false) return;
+
             await DoCrawling_GameMeca(pContext.Channel);
         }
 
-        [Command("test12")]
+        [Command("test_tg")]
         public async Task Crawling_ThisIsGame(CommandContext pContext)
         {
+            if (Strix.CBot.CheckIsRespond(pContext.Channel) == false) return;
+
             await DoCrawling_ThisIsGame(pContext.Channel);
         }
 

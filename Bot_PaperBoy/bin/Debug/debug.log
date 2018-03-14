@@ -202,3 +202,12 @@
 [0312/204810.194:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
 [0312/204810.194:ERROR:exception_snapshot_win.cc(88)] thread ID 12980 not found in process
 [0312/204810.194:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0314/200738.721:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0314/200738.722:ERROR:exception_snapshot_win.cc(88)] thread ID 4344 not found in process
+[0314/200738.722:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0314/200738.804:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0314/200738.805:ERROR:exception_snapshot_win.cc(88)] thread ID 5692 not found in process
+[0314/200738.805:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0314/200740.505:ERROR:process_reader_win.cc(123)] NtOpenThread: {액세스 거부} 프로세스가 개체에 액세스를 요구했지만 액세스 권한이 없습니다. (0xc0000022)
+[0314/200740.506:ERROR:exception_snapshot_win.cc(88)] thread ID 10272 not found in process
+[0314/200740.506:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed

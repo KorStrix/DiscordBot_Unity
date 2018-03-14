@@ -22,6 +22,8 @@ namespace Strix
         public async Task Start_Tutorial_4(CommandContext pContext) { if (CheckIsRespond(pContext.Channel) == false) return; await DoStartTutorial(pContext); }
         [Command("튜토리얼")]
         public async Task Start_Tutorial_5(CommandContext pContext) { if (CheckIsRespond(pContext.Channel) == false) return; await DoStartTutorial(pContext); }
+        [Command("하이")]
+        public async Task Start_Tutorial_6(CommandContext pContext) { if (CheckIsRespond(pContext.Channel) == false) return; await DoStartTutorial(pContext); }
 
         static public async Task DoStartTutorial(CommandContext pContext)
         {

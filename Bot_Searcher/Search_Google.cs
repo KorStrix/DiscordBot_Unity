@@ -16,10 +16,18 @@ namespace Bot_Searcher
 		{
 			if (CBot.CheckIsRespond( pContext.Channel) == false) return;
 
-			await Event_SearchStart( pContext, strSearchWord, Search_Google, strURL_Google, "Google" );
+			await Event_SearchStart( pContext, pContext.RawArgumentString.Replace(" ", "+"), Search_Google, strURL_Google, "Google" );
 		}
 
-		static DiscordEmbedBuilder Search_Google( string strURL, string strSearchWord, DateTime pDateTimeStart )
+        [Command("구글")]
+        public async Task SearchStart_Google_Kor(CommandContext pContext, string strSearchWord)
+        {
+            if (CBot.CheckIsRespond(pContext.Channel) == false) return;
+
+            await Event_SearchStart(pContext, pContext.RawArgumentString.Replace(" ", "+"), Search_Google, strURL_Google, "Google");
+        }
+
+        static DiscordEmbedBuilder Search_Google( string strURL, string strSearchWord, DateTime pDateTimeStart )
 		{
 			string strTargetURL = string.Format( strURL, strSearchWord );
 			DiscordEmbedBuilder pEmbedBuilder = new DiscordEmbedBuilder();

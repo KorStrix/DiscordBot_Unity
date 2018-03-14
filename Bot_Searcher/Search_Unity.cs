@@ -18,10 +18,18 @@ namespace Bot_Searcher
 		{
 			if (CBot.CheckIsRespond( pContext.Channel) == false) return;
 
-			await Event_SearchStart( pContext, strSearchWord, Search_UnityAPI, string.Format( strURL_UnityScriptAPI, strSearchWord ), "UnityAPI", true );
+			await Event_SearchStart( pContext, strSearchWord, Search_UnityAPI, string.Format( strURL_UnityScriptAPI, pContext.RawArgumentString.Replace(" ", "+")), "UnityAPI", true );
 		}
 
-		static DiscordEmbedBuilder Search_UnityAPI( string strURL, string strSearchWord, DateTime pDateTimeStart )
+        [Command("유니티")]
+        public async Task SearchStart_Unity_Kor(CommandContext pContext, string strSearchWord)
+        {
+            if (CBot.CheckIsRespond(pContext.Channel) == false) return;
+
+            await Event_SearchStart(pContext, strSearchWord, Search_UnityAPI, string.Format(strURL_UnityScriptAPI, pContext.RawArgumentString.Replace(" ", "+")), "UnityAPI", true);
+        }
+
+        static DiscordEmbedBuilder Search_UnityAPI( string strURL, string strSearchWord, DateTime pDateTimeStart )
 		{
 			IWebDriver pDriver = new ChromeDriver();
 			pDriver.Url = strURL;

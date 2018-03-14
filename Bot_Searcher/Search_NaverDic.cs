@@ -28,18 +28,34 @@ namespace Bot_Searcher
 		{
 			if (CBot.CheckIsRespond( pContext.Channel) == false) return;
 
-			await Event_SearchStart( pContext, strSearchWord, Search_NaverDic_En, string.Format( strURL_NaverDic_English, strSearchWord ), "Naver 영어사전", true );
+			await Event_SearchStart( pContext, strSearchWord, Search_NaverDic_En, string.Format( strURL_NaverDic_English, pContext.RawArgumentString.Replace(" ", "+")), "Naver 영어사전", true );
 		}
 
-		[Command( "ko" )]
+        [Command("영어")]
+        public async Task SearchStart_NaverDic_English_Kor(CommandContext pContext, string strSearchWord)
+        {
+            if (CBot.CheckIsRespond(pContext.Channel) == false) return;
+
+            await Event_SearchStart(pContext, strSearchWord, Search_NaverDic_En, string.Format(strURL_NaverDic_English, pContext.RawArgumentString.Replace(" ", "+")), "Naver 영어사전", true);
+        }
+
+        [Command( "ko" )]
 		public async Task SearchStart_NaverDic_Korean( CommandContext pContext, string strSearchWord )
 		{
 			if (CBot.CheckIsRespond( pContext.Channel) == false) return;
 
-			await Event_SearchStart( pContext, strSearchWord, Search_NaverDic_Ko, string.Format( strURL_NaverDic_Korea, strSearchWord ), "Naver 국어사전", true );
+			await Event_SearchStart( pContext, strSearchWord, Search_NaverDic_Ko, string.Format( strURL_NaverDic_Korea, pContext.RawArgumentString.Replace(" ", "+")), "Naver 국어사전", true );
 		}
 
-		static DiscordEmbedBuilder Search_NaverDic( string strURL, string strSearchWord, DateTime pDateTimeStart )
+        [Command("국어")]
+        public async Task SearchStart_NaverDic_Korean_Kor(CommandContext pContext, string strSearchWord)
+        {
+            if (CBot.CheckIsRespond(pContext.Channel) == false) return;
+
+            await Event_SearchStart(pContext, strSearchWord, Search_NaverDic_Ko, string.Format(strURL_NaverDic_Korea, pContext.RawArgumentString.Replace(" ", "+")), "Naver 국어사전", true);
+        }
+
+        static DiscordEmbedBuilder Search_NaverDic( string strURL, string strSearchWord, DateTime pDateTimeStart )
 		{
 			DiscordEmbedBuilder pEmbedBuilder = new DiscordEmbedBuilder();
 			try

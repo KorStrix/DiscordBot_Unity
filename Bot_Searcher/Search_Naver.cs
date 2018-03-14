@@ -16,10 +16,18 @@ namespace Bot_Searcher
 		{
 			if (CBot.CheckIsRespond( pContext.Channel) == false) return;
 
-			await Event_SearchStart( pContext, strSearchWord, Search_Naver, string.Format( strURL_Naver, strSearchWord ), "Naver" );
+			await Event_SearchStart( pContext, strSearchWord, Search_Naver, string.Format( strURL_Naver, pContext.RawArgumentString.Replace(" ", "+")), "Naver" );
 		}
 
-		static DiscordEmbedBuilder Search_Naver( string strURL, string strSearchWord, DateTime pDateTimeStart )
+        [Command("네이버")]
+        public async Task SearchStart_Naver_Kor(CommandContext pContext, string strSearchWord)
+        {
+            if (CBot.CheckIsRespond(pContext.Channel) == false) return;
+
+            await Event_SearchStart(pContext, strSearchWord, Search_Naver, string.Format(strURL_Naver, pContext.RawArgumentString.Replace(" ", "+")), "Naver");
+        }
+
+        static DiscordEmbedBuilder Search_Naver( string strURL, string strSearchWord, DateTime pDateTimeStart )
 		{
             // 본래 이렇게 해야 정상이지만, 빠른 속도를 위해 주석처리			
             //IWebDriver pDriver = new ChromeDriver();

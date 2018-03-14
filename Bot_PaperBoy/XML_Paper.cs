@@ -11,16 +11,20 @@ namespace Bot_PaperBoy
     {
         public enum ECrawlingKey
         {
-            [XmlEnum("게임메카")]
+            [XmlEnum]
             게임메카,
-            [XmlEnum("디스이즈게임즈")]
+            [XmlEnum]
             디스이즈게임즈,
-            [XmlEnum("네이버카페_유니티허브_스터디")]
+
+            [XmlEnum]
             네이버카페_유니티허브_스터디,
-            [XmlEnum("네이버카페_유니티허브_구인구직")]
+            [XmlEnum]
             네이버카페_유니티허브_구인구직,
-            [XmlEnum("네이버카페_인디터_팀원모집")]
+            [XmlEnum]
             네이버카페_인디터_팀원모집,
+
+            [XmlEnum]
+            네이버실시간뉴스,
         }
 
         public class SPaperConfig

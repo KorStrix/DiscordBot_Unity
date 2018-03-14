@@ -36,6 +36,7 @@ namespace Bot_PaperBoy
 
             _pCommands.RegisterCommands<Command_Crawling_GameNews>();
             _pCommands.RegisterCommands<Command_Crawling_NaverCafe>();
+            _pCommands.RegisterCommands<Command_Crawling_RealTimeNews>();
 
             await _pClient.ConnectAsync();
             //await Task.Delay(-1);

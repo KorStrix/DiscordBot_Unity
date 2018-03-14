@@ -32,21 +32,27 @@ namespace Bot_PaperBoy
         static public readonly string const_IndieTer_Hire = "http://cafe.naver.com/unityhub?iframe_url=/ArticleList.nhn%3Fsearch.clubid=28183931%26search.menuid=14%26search.boardtype=L";
 
 
-        [Command("test1")]
+        [Command("test_uhs")]
         public async Task Crawling_Naver_UnityHub_Study(CommandContext pContext)
         {
+            if (Strix.CBot.CheckIsRespond(pContext.Channel) == false) return;
+
             await DoCrawling_NaverCafe_UnityHub_Study(pContext.Channel);
         }
 
-        [Command("test2")]
+        [Command("test_uhh")]
         public async Task Crawling_Naver_UnityHub_Hire(CommandContext pContext)
         {
+            if (Strix.CBot.CheckIsRespond(pContext.Channel) == false) return;
+
             await DoCrawling_Naver_UnityHub_Hire(pContext.Channel);
         }
 
-        [Command("test3")]
+        [Command("test_ith")]
         public async Task Crawling_Naver_IndieTer_Hire(CommandContext pContext)
         {
+            if (Strix.CBot.CheckIsRespond(pContext.Channel) == false) return;
+
             await DoCrawling_Naver_IndieTer_Hire(pContext.Channel);
         }
 

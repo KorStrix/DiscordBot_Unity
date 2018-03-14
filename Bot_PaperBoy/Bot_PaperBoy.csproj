@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command_Crawling_GameNews.cs" />
+    <Compile Include="Command_Crawling_RealTimeNews.cs" />
     <Compile Include="Command_Crawling_NaverCafe.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
