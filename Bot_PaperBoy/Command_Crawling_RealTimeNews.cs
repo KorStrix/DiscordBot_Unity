@@ -22,10 +22,10 @@ namespace Bot_PaperBoy
         {
             if (Strix.CBot.CheckIsRespond(pContext.Channel) == false) return;
 
-            await DoCrawling_NaverCafe_UnityHub_Study(pContext.Channel);
+            await DoCrawling_Naver_RealTimeNews(pContext.Channel);
         }
 
-        static public async Task DoCrawling_NaverCafe_UnityHub_Study(DiscordChannel pChannel)
+        static public async Task DoCrawling_Naver_RealTimeNews(DiscordChannel pChannel)
         {
             await Crawling_RealTime_Naver(pChannel, const_ReaTimeNews_Naver, DiscordColor.Green, "[네이버]현재 시각 뉴스입니다.");
         }

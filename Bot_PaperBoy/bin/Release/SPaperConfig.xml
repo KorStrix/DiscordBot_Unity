@@ -17,21 +17,29 @@
 
 		<PaperConfigDetail CrawlingKey="네이버카페_유니티허브_스터디" 					IsUsage = "true" ReportChannelID = "422418075460173833">
 			<PaperShowTimeList>
-				<PaperShowTime Hour="7" Minute="60" Second="60" />
+				<PaperShowTime Hour="8" Minute="60" Second="60" />
 			</PaperShowTimeList>
 		</PaperConfigDetail>
 
 		<PaperConfigDetail CrawlingKey="네이버카페_유니티허브_구인구직" 					IsUsage = "true" ReportChannelID = "422418075460173833">
 			<PaperShowTimeList>
-				<PaperShowTime Hour="7" Minute="60" Second="60" />
+				<PaperShowTime Hour="8" Minute="60" Second="60" />
 			</PaperShowTimeList>
 		</PaperConfigDetail>
 
 		<PaperConfigDetail CrawlingKey="네이버카페_인디터_팀원모집" 					IsUsage = "true" ReportChannelID = "422418075460173833">
 			<PaperShowTimeList>
-				<PaperShowTime Hour="7" Minute="60" Second="60" />
+				<PaperShowTime Hour="8" Minute="60" Second="60" />
 			</PaperShowTimeList>
 		</PaperConfigDetail>
 
+		<PaperConfigDetail CrawlingKey="네이버실시간뉴스" 					IsUsage = "true" ReportChannelID = "423439247677063169">
+			<PaperShowTimeList>
+				<PaperShowTime Hour="0" Minute="60" Second="60" />
+			</PaperShowTimeList>
+		</PaperConfigDetail>
+
+		
+		
 	</PaperConfigDetailList>
 </SPaperConfig>
