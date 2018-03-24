@@ -28,6 +28,8 @@ namespace Bot_PaperBoy
     {
         static public readonly string const_UnityHub_Study = "http://cafe.naver.com/unityhub?iframe_url=/ArticleList.nhn%3Fsearch.clubid=26377973%26search.menuid=112%26search.boardtype=L";
         static public readonly string const_UnityHub_Hire = "http://cafe.naver.com/unityhub?iframe_url=/ArticleList.nhn%3Fsearch.clubid=26377973%26search.menuid=31%26search.boardtype=L";
+        static public readonly string const_UnityHub_News = "http://cafe.naver.com/unityhub?iframe_url=/ArticleList.nhn%3Fsearch.clubid=26377973%26search.menuid=41%26search.boardtype=L";
+
 
         static public readonly string const_IndieTer_Hire = "http://cafe.naver.com/unityhub?iframe_url=/ArticleList.nhn%3Fsearch.clubid=28183931%26search.menuid=14%26search.boardtype=L";
 
@@ -48,6 +50,14 @@ namespace Bot_PaperBoy
             await DoCrawling_Naver_UnityHub_Hire(pContext.Channel);
         }
 
+        [Command("test_uhn")]
+        public async Task Crawling_Naver_UnityHub_News(CommandContext pContext)
+        {
+            if (Strix.CBot.CheckIsRespond(pContext.Channel) == false) return;
+
+            await DoCrawling_Naver_UnityHub_News(pContext.Channel);
+        }
+
         [Command("test_ith")]
         public async Task Crawling_Naver_IndieTer_Hire(CommandContext pContext)
         {
@@ -55,6 +65,7 @@ namespace Bot_PaperBoy
 
             await DoCrawling_Naver_IndieTer_Hire(pContext.Channel);
         }
+
 
         static public async Task DoCrawling_NaverCafe_UnityHub_Study(DiscordChannel pChannel)
         {
@@ -65,6 +76,12 @@ namespace Bot_PaperBoy
         {
             await Crawling_NaverCafe(pChannel, const_UnityHub_Hire, DiscordColor.Green, "[네이버카페]유니티허브 구인구직 게시판입니다.");
         }
+
+        static public async Task DoCrawling_Naver_UnityHub_News(DiscordChannel pChannel)
+        {
+            await Crawling_NaverCafe(pChannel, const_UnityHub_News, DiscordColor.Magenta, "[네이버카페]유니티허브 뉴스/정보 게시판입니다.");
+        }
+
 
         static public async Task DoCrawling_Naver_IndieTer_Hire(DiscordChannel pChannel)
         {
@@ -82,7 +99,18 @@ namespace Bot_PaperBoy
             var arrElementRanking = pElement_ListParents.FindElements(By.TagName("tr"));
             var pEmbedBuilder = ProcGenerateEmbedBuilder(pColor, arrElementRanking, strTitle, strURL);
 
-            await pChannel.SendMessageAsync(null, false, pEmbedBuilder);
+            if (pEmbedBuilder.Fields.Count != 0)
+            {
+                try
+                {
+                    await pChannel.SendMessageAsync(null, false, pEmbedBuilder);
+                }
+                catch
+                {
+                    
+                }
+            }
+
             pDriver.Close();
         }
 
@@ -109,12 +137,28 @@ namespace Bot_PaperBoy
                 string strLink = pElementLink.GetAttribute("href");
                 string[] arrDateAndViewCount = arrName[(int)ENaverIndex.작성일및조회수].Split(new String[] { "." }, StringSplitOptions.None);
 
+                if (arrDateAndViewCount.Length < 3)
+                    continue;
+
+                string strDate = string.Format($"{arrDateAndViewCount[0]}/{arrDateAndViewCount[1]}/{arrDateAndViewCount[2]}");
+                if (CheckIsOverDay(strDate, 1))
+                    continue;
+
                 pEmbed.AddField(
                     $"{arrName[(int)ENaverIndex.글제목]}",
                     $"ㄴ [Link 바로가기]({strLink}) 글쓴이 : [{arrName[(int)ENaverIndex.아이디]}][{arrDateAndViewCount[0]}.{arrDateAndViewCount[1]}.{arrDateAndViewCount[2]}]");
             }
 
             return pEmbed;
+        }
+
+        static private bool CheckIsOverDay(string strDateTime, int iDay)
+        {
+            DateTime pDateTime;
+            if (DateTime.TryParse(strDateTime, out pDateTime))
+                return Math.Abs(pDateTime.Day - DateTime.Now.Day) > iDay;
+            else
+                return true;
         }
     }
 }

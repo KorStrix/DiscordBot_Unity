@@ -32,7 +32,11 @@ namespace Bot_PaperBoy
 
             _mapCrawling.Add(XML_Paper.ECrawlingKey.네이버카페_유니티허브_스터디, Command_Crawling_NaverCafe.DoCrawling_NaverCafe_UnityHub_Study);
             _mapCrawling.Add(XML_Paper.ECrawlingKey.네이버카페_유니티허브_구인구직, Command_Crawling_NaverCafe.DoCrawling_Naver_UnityHub_Hire);
+            _mapCrawling.Add(XML_Paper.ECrawlingKey.네이버카페_유니티허브_뉴스, Command_Crawling_NaverCafe.DoCrawling_Naver_UnityHub_News);
+
             _mapCrawling.Add(XML_Paper.ECrawlingKey.네이버카페_인디터_팀원모집, Command_Crawling_NaverCafe.DoCrawling_Naver_IndieTer_Hire);
+
+            
 
             _mapCrawling.Add(XML_Paper.ECrawlingKey.네이버실시간뉴스, Command_Crawling_RealTimeNews.DoCrawling_Naver_RealTimeNews);
 
@@ -61,7 +65,7 @@ namespace Bot_PaperBoy
                 bool bIsCorrect = false;
                 for(int j = 0; j < pConfig.arrTime.Length; j++)
                 {
-                    if (CheckIsCorrectTime(sDateTime.Hour, pConfig.arrTime[j].iHour) &&
+                    if (CheckIsCorrectTime_Hour(sDateTime.Hour, pConfig.arrTime[j].iHour) &&
                         CheckIsCorrectTime(sDateTime.Minute, pConfig.arrTime[j].iMinute) &&
                         CheckIsCorrectTime(sDateTime.Second, pConfig.arrTime[j].iSecond))
                     {
@@ -87,15 +91,27 @@ namespace Bot_PaperBoy
                 }
             }
 
-            Console.WriteLine($"Working... [{sDateTime.Hour}:{sDateTime.Minute}:{sDateTime.Second}.{sDateTime.Millisecond}]");
+            //Console.WriteLine($"Working... [{sDateTime.Hour}:{sDateTime.Minute}:{sDateTime.Second}.{sDateTime.Millisecond}]");
             await Task.Delay(1000);
+        }
+
+        static private bool CheckIsCorrectTime_Hour(int iTimeCurrent, int iTimeCheck)
+        {
+            bool bCurrentIsOver12 = iTimeCurrent > 12;
+            bool bCheckIsOver12 = iTimeCheck > 12;
+
+            if (bCurrentIsOver12 == bCheckIsOver12)
+                return CheckIsCorrectTime(iTimeCurrent, iTimeCheck);
+            else
+                return false;
         }
 
         static private bool CheckIsCorrectTime(int iTimeCurrent, int iTimeCheck)
         {
-            if (iTimeCheck == 0) return true;
-
-            return (iTimeCurrent % iTimeCheck == 0);
+            if (iTimeCurrent == 0 && iTimeCheck == 0)
+                return true;
+            else
+                return (iTimeCurrent % iTimeCheck == 0);
         }
 
         static public DiscordEmbedBuilder Crawling_Find(DiscordColor pColor, ReadOnlyCollection<IWebElement> arrElement, string strTitle, string strURL, bool bUseNumbering)

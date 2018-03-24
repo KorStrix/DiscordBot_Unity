@@ -21,6 +21,9 @@ namespace Bot_PaperBoy
             [XmlEnum]
             네이버카페_유니티허브_구인구직,
             [XmlEnum]
+            네이버카페_유니티허브_뉴스,
+
+            [XmlEnum]
             네이버카페_인디터_팀원모집,
 
             [XmlEnum]
