@@ -4,7 +4,7 @@
   <CallID></CallID>
   <CallChannel>room-manager</CallChannel>
   <LobbyChannelID>417454891670437900</LobbyChannelID>
-  <BootingMessage>방관리자 준비 완료.</BootingMessage>
+  <BootingMessage></BootingMessage>
   <Tutorial Title="'Ro'om Manager 방관리자 튜토리얼입니다.">
     <Fields>
       <Field FieldName="기능" FieldValue="설명" />

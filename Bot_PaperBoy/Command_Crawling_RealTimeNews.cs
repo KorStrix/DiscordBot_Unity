@@ -17,12 +17,24 @@ namespace Bot_PaperBoy
         static public readonly string const_ReaTimeNews_Naver = "https://datalab.naver.com/keyword/realtimeList.naver";
         static string strURL_Naver = "https://search.naver.com/search.naver?sm=tab_hty.top&query={0}";
 
-        [Command("test")]
+        [Command("test_realtime")]
         public async Task Crawling_Naver_UnityHub_Study(CommandContext pContext)
         {
             if (Strix.CBot.CheckIsRespond(pContext.Channel) == false) return;
 
             await DoCrawling_Naver_RealTimeNews(pContext.Channel);
+        }
+
+
+        [Command("testtime")]
+        public async Task Test_Time(CommandContext pContext, int iHour, int iMinute, int iSecond)
+        {
+            DateTime sDateTime = new DateTime().
+                AddHours(iHour).
+                AddMinutes(iMinute).
+                AddSeconds(iSecond);
+
+            await Program.UpdateCheckTime(sDateTime);
         }
 
         static public async Task DoCrawling_Naver_RealTimeNews(DiscordChannel pChannel)

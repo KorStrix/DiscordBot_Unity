@@ -48,14 +48,12 @@ namespace Bot_PaperBoy
             //await Task.Delay(-1);
             while (true)
             {
-                await UpdateCheckTime();
+                await UpdateCheckTime(DateTime.Now);
             }
         }
 
-        static public async Task UpdateCheckTime()
+        static public async Task UpdateCheckTime(DateTime sDateTime)
         {
-            DateTime sDateTime = DateTime.Now;
-
             var arrConfig = XML_Paper.pConfig.arrConfig;
             for(int i = 0; i < arrConfig.Length; i++)
             {
@@ -82,12 +80,8 @@ namespace Bot_PaperBoy
                         continue;
                     }
 
-#if DEBUG
-                    Console.WriteLine($"{pConfig.eReportChannelID_GameNews} is Excute !!");
-#else
-                    Console.WriteLine($"{pConfig.eReportChannelID_GameNews} is Excute !!");
+                    Console.WriteLine($"{pConfig.eReportChannelID_GameNews} is Excute !!" + sDateTime.ToString());
                     await _mapCrawling[pConfig.eReportChannelID_GameNews](_pClient.GetChannelAsync(pConfig.iReportChannelID).Result);
-#endif
                 }
             }
 
@@ -108,13 +102,13 @@ namespace Bot_PaperBoy
 
         static private bool CheckIsCorrectTime(int iTimeCurrent, int iTimeCheck)
         {
-            if (iTimeCurrent == 0 && iTimeCheck == 0)
-                return true;
+            if(iTimeCheck == 0)
+                return iTimeCurrent == 0;
             else
                 return (iTimeCurrent % iTimeCheck == 0);
         }
 
-        static public DiscordEmbedBuilder Crawling_Find(DiscordColor pColor, ReadOnlyCollection<IWebElement> arrElement, string strTitle, string strURL, bool bUseNumbering)
+        static public DiscordEmbedBuilder DoGenerateEmbedBuilder(DiscordColor pColor, ReadOnlyCollection<IWebElement> arrElement, string strTitle, string strURL, bool bUseNumbering)
         {
             DiscordEmbedBuilder pEmbed = new DiscordEmbedBuilder();
             pEmbed.

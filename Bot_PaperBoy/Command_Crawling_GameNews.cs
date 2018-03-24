@@ -44,7 +44,7 @@ namespace Bot_PaperBoy
             IWebElement pElement_RankList = pElement_RankWrap.FindElement(By.ClassName("rank_list"));
 
             var arrElementRanking = pElement_RankList.FindElements(By.TagName("a"));
-            var pEmbedBuilder = Program.Crawling_Find(DiscordColor.Red, arrElementRanking, "게임메카 뉴스 리스트입니다.", const_strGameMeca, true);
+            var pEmbedBuilder = Program.DoGenerateEmbedBuilder(DiscordColor.Red, arrElementRanking, "게임메카 뉴스 리스트입니다.", const_strGameMeca, true);
 
             await pChannel.SendMessageAsync(null, false, pEmbedBuilder);
             pDriver.Close();
@@ -58,7 +58,7 @@ namespace Bot_PaperBoy
             IWebElement pElement_ListParents = pDriver.FindElement(By.ClassName("side-comp-body"));
 
             var arrElementRanking = pElement_ListParents.FindElements(By.TagName("a"));
-            var pEmbedBuilder = Program.Crawling_Find(DiscordColor.Green, arrElementRanking, "디스이스게임 많이본 기사 리스트입니다.", const_strThisIsGame, false);
+            var pEmbedBuilder = Program.DoGenerateEmbedBuilder(DiscordColor.Green, arrElementRanking, "디스이스게임 많이본 기사 리스트입니다.", const_strThisIsGame, false);
 
             await pChannel.SendMessageAsync(null, false, pEmbedBuilder);
             pDriver.Close();
