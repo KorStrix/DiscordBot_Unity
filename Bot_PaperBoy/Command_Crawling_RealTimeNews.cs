@@ -81,7 +81,7 @@ namespace Bot_PaperBoy
 
                     pEmbed.AddField(
                         $"{iOrder++}.{pElement.Text}",
-                        $"ㄴ [Link 바로가기]({string.Format(strURL_Naver, strSearchWord)})");
+                        $"ㄴ [Link 바로가기]({string.Format(strURL_Naver, strSearchWord)})", true);
                 }
             }
 
