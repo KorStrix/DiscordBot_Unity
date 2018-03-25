@@ -92,6 +92,9 @@ namespace Bot_PaperBoy
 
         static private bool CheckIsCorrectTime_Hour(int iTimeCurrent, int iTimeCheck)
         {
+            if (iTimeCheck == -1)
+                return true;
+
             bool bCurrentIsOver12 = iTimeCurrent > 12;
             bool bCheckIsOver12 = iTimeCheck > 12;
 
