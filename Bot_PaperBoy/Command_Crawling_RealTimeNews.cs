@@ -29,6 +29,8 @@ namespace Bot_PaperBoy
         [Command("testtime")]
         public async Task Test_Time(CommandContext pContext, int iHour, int iMinute, int iSecond)
         {
+            if (Strix.CBot.CheckIsRespond(pContext.Channel) == false) return;
+
             DateTime sDateTime = new DateTime().
                 AddHours(iHour).
                 AddMinutes(iMinute).

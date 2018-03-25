@@ -28,6 +28,9 @@ namespace Bot_PaperBoy
 
             [XmlEnum]
             네이버실시간뉴스,
+
+            [XmlEnum]
+            유니티블로그,
         }
 
         public class SPaperConfig

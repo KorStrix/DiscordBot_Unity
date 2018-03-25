@@ -141,7 +141,7 @@ namespace Bot_PaperBoy
                     continue;
 
                 string strDate = string.Format($"{arrDateAndViewCount[0]}/{arrDateAndViewCount[1]}/{arrDateAndViewCount[2]}");
-                if (CheckIsOverDay(strDate, 1))
+                if (Strix.CBot.CheckIsOverDay(strDate, 1))
                     continue;
 
                 pEmbed.AddField(
@@ -150,20 +150,6 @@ namespace Bot_PaperBoy
             }
 
             return pEmbed;
-        }
-
-        static private bool CheckIsOverDay(string strDateTime, int iDay)
-        {
-            DateTime pDateTime;
-            if (DateTime.TryParse(strDateTime, out pDateTime))
-            {
-                if (pDateTime.Month - DateTime.Now.Month != 0)
-                    return false;
-
-                return Math.Abs(pDateTime.Day - DateTime.Now.Day) > iDay;
-            }
-            else
-                return true;
         }
     }
 }

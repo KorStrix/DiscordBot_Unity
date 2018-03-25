@@ -37,12 +37,14 @@ namespace Bot_PaperBoy
             _mapCrawling.Add(XML_Paper.ECrawlingKey.네이버카페_인디터_팀원모집, Command_Crawling_NaverCafe.DoCrawling_Naver_IndieTer_Hire);
 
             
-
             _mapCrawling.Add(XML_Paper.ECrawlingKey.네이버실시간뉴스, Command_Crawling_RealTimeNews.DoCrawling_Naver_RealTimeNews);
+
+            _mapCrawling.Add(XML_Paper.ECrawlingKey.유니티블로그, Command_Crawling_UnityBlog.DoCrawling_UnityBlog);            
 
             _pCommands.RegisterCommands<Command_Crawling_GameNews>();
             _pCommands.RegisterCommands<Command_Crawling_NaverCafe>();
             _pCommands.RegisterCommands<Command_Crawling_RealTimeNews>();
+            _pCommands.RegisterCommands<Command_Crawling_UnityBlog>();
 
             await _pClient.ConnectAsync();
             //await Task.Delay(-1);
@@ -85,7 +87,6 @@ namespace Bot_PaperBoy
                 }
             }
 
-            //Console.WriteLine($"Working... [{sDateTime.Hour}:{sDateTime.Minute}:{sDateTime.Second}.{sDateTime.Millisecond}]");
             await Task.Delay(1000);
         }
 

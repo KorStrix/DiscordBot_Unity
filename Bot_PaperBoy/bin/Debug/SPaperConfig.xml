@@ -14,7 +14,6 @@
 		</PaperConfigDetail>
 
 		
-		
 		<PaperConfigDetail CrawlingKey="네이버카페_유니티허브_스터디" 					IsUsage = "true" ReportChannelID = "422736932985110529">
 			<PaperShowTimeList>
 				<PaperShowTime Hour="8" Minute="0" Second="0" />
@@ -39,9 +38,18 @@
 			</PaperShowTimeList>
 		</PaperConfigDetail>
 
+		
+		
 		<PaperConfigDetail CrawlingKey="네이버실시간뉴스" 					IsUsage = "true" ReportChannelID = "423439247677063169">
 			<PaperShowTimeList>
 				<PaperShowTime Hour="0" Minute="0" Second="0" />
+			</PaperShowTimeList>
+		</PaperConfigDetail>
+
+		
+		<PaperConfigDetail CrawlingKey="유니티블로그" 					IsUsage = "true" ReportChannelID = "427252432456646657">
+			<PaperShowTimeList>
+				<PaperShowTime Hour="8" Minute="30" Second="0" />
 			</PaperShowTimeList>
 		</PaperConfigDetail>
 

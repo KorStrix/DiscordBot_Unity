@@ -119,5 +119,19 @@ namespace Strix
 
             return pChannel.Name.ToLower().Contains(XML_Config.pConfig.strCall_Channel);
         }
+
+        static public bool CheckIsOverDay(string strDateTime, int iDay)
+        {
+            DateTime pDateTime;
+            if (DateTime.TryParse(strDateTime, out pDateTime))
+            {
+                if (pDateTime.Month - DateTime.Now.Month != 0)
+                    return false;
+
+                return Math.Abs(pDateTime.Day - DateTime.Now.Day) > iDay;
+            }
+            else
+                return true;
+        }
     }
 }
