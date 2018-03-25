@@ -42,7 +42,7 @@
 		
 		<PaperConfigDetail CrawlingKey="네이버실시간뉴스" 					IsUsage = "true" ReportChannelID = "423439247677063169">
 			<PaperShowTimeList>
-				<PaperShowTime Hour="0" Minute="0" Second="0" />
+				<PaperShowTime Hour="-1" Minute="0" Second="0" />
 			</PaperShowTimeList>
 		</PaperConfigDetail>
 

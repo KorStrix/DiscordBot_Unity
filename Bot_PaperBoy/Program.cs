@@ -103,6 +103,9 @@ namespace Bot_PaperBoy
 
         static private bool CheckIsCorrectTime(int iTimeCurrent, int iTimeCheck)
         {
+            if (iTimeCheck == -1)
+                return true;
+
             if(iTimeCheck == 0)
                 return iTimeCurrent == 0;
             else
