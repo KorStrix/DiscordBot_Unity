@@ -4,6 +4,7 @@ using DSharpPlus.Entities;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Strix;
 
 namespace Bot_Quiz
 {
@@ -48,7 +49,34 @@ namespace Bot_Quiz
         {
             if (Strix.CBot.CheckIsRespond(pContext.Channel) == false) return;
 
-            await pContext.Channel.SendMessageAsync("퀴즈추가요청.. " + pContext.Message.Content);
+            SQuiz_NonRegistered pQuizNew = new SQuiz_NonRegistered(pContext.User, strQuiz, strAnswer);
+            pQuizNew = SCPHPConnector.Insert(pQuizNew);
+
+            Program.listQuiz_NonRegistered.Add(pQuizNew);
+
+            await pContext.Channel.SendMessageAsync("퀴즈추가요청완료");
+        }
+
+        [RequirePermissions(DSharpPlus.Permissions.ManageChannels)]
+        [Command("퀴즈후보보기")]
+        public async Task Command_Request_AddQuiz(CommandContext pContext)
+        {
+            if (Strix.CBot.CheckIsRespond(pContext.Channel) == false) return;
+
+            DiscordEmbedBuilder pEmbed = new DiscordEmbedBuilder();
+            pEmbed.WithTitle("퀴즈후보리스트입니다.");
+
+            int iLoopCount = 1;
+            foreach(SQuiz_NonRegistered pQuiz in Program.listQuiz_NonRegistered)
+            {
+                string strAnswer = pQuiz.strAnswer;
+                if (strAnswer.Length > 20)
+                    strAnswer = $"{strAnswer.Substring(0, 20)}...";
+                pEmbed.AddField($"{iLoopCount++} . {pQuiz.strQuiz}",
+                    $"ㄴ{pQuiz.strAnswer} 제출자 : {pQuiz.strQuizMaker}");
+            }
+
+            await pContext.Channel.SendMessageAsync(null, false, pEmbed);
         }
 
         private SQuiz ProcGenerateQuiz(DiscordUser pUser)
@@ -68,7 +96,6 @@ namespace Bot_Quiz
 
         private DiscordEmbedBuilder GenerateEmbedBuilder(SQuiz pQuiz)
         {
-            XML_Quiz.Load();
             DiscordEmbedBuilder pEmbed = new DiscordEmbedBuilder();
             pEmbed.
                 AddField("문제", pQuiz.strQuiz).
