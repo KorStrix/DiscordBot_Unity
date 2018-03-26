@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<SPHPConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <PHP_Address_Prefix>http://strix13.synology.me/php/{0}.php</PHP_Address_Prefix>
-  <DBName>Discord</DBName>
-</SPHPConfig>
