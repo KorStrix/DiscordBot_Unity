@@ -20,6 +20,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bot_PaperBoy", "Bot_PaperBo
 		{D301387B-F4B3-4AB7-8F75-3D700A19B004} = {D301387B-F4B3-4AB7-8F75-3D700A19B004}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bot_Quiz", "Bot_Quiz\Bot_Quiz.csproj", "{C8061856-75B3-4339-96CD-FAB2F4777453}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D301387B-F4B3-4AB7-8F75-3D700A19B004} = {D301387B-F4B3-4AB7-8F75-3D700A19B004}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +47,10 @@ Global
 		{CC04E16B-C78A-4099-A147-1342FA70DCCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC04E16B-C78A-4099-A147-1342FA70DCCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC04E16B-C78A-4099-A147-1342FA70DCCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8061856-75B3-4339-96CD-FAB2F4777453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8061856-75B3-4339-96CD-FAB2F4777453}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8061856-75B3-4339-96CD-FAB2F4777453}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8061856-75B3-4339-96CD-FAB2F4777453}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

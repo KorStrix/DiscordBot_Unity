@@ -126,7 +126,7 @@ namespace Strix
             if (DateTime.TryParse(strDateTime, out pDateTime))
             {
                 if (pDateTime.Month - DateTime.Now.Month != 0)
-                    return false;
+                    return true;
 
                 return Math.Abs(pDateTime.Day - DateTime.Now.Day) > iDay;
             }

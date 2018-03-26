@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<SConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Token>NDI3NzMzMTExODU0MzMzOTYy.DZo27Q.LJmw3CUKkiAvHnd6ABTPfb3CM9U</Token>
+  <CallID></CallID>
+  <CallChannel>quiz</CallChannel>
+  <LobbyChannelID>417454891670437900</LobbyChannelID>
+  <BootingMessage></BootingMessage>
+  <Tutorial Title="퀴즈봇 튜토리얼입니다.">
+    <Fields>
+      <Field FieldName="퀴즈" FieldValue="퀴즈를 냅니다." />
+      <Field FieldName="퀴즈 추가" FieldValue="퀴즈를 추가합니다." />
+    </Fields>
+  </Tutorial>
+</SConfig>

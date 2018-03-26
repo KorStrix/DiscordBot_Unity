@@ -95,6 +95,9 @@ namespace Bot_PaperBoy
             if (iTimeCheck == -1)
                 return true;
 
+            if (iTimeCurrent == 0)
+                return false;
+
             bool bCurrentIsOver12 = iTimeCurrent > 12;
             bool bCheckIsOver12 = iTimeCheck > 12;
 
