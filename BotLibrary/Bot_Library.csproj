@@ -59,10 +59,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CBot.cs" />
+    <Compile Include="SCPHPConnector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands_Tutorial.cs" />
     <Compile Include="CManagerXMLParser.cs" />
     <Compile Include="XML_Config.cs" />
+    <Compile Include="XML_PHPConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

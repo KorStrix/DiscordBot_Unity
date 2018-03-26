@@ -11,6 +11,8 @@ namespace Strix
 {
 	public class CBot
 	{
+        static readonly string const_strSelfID = "Processing..";
+
         static public DiscordClient pClient { get; private set; }
         static public CommandsNextModule pCommands { get; private set; }
 
@@ -67,7 +69,7 @@ namespace Strix
         static private void ProcNotStringPrefix(CommandsNextConfiguration pConfiguration)
         {
             pConfiguration.CustomPrefixPredicate = CheckPrefixCustom;
-            pConfiguration.StringPrefix = "Send Self";
+            pConfiguration.StringPrefix = const_strSelfID;
 
             pClient.MessageCreated += async eMessageArgs =>
             {
@@ -85,7 +87,7 @@ namespace Strix
                     if (_mapCommand.TryGetValue(arrCommand[0], out pCommand) == false)
                         return;
 
-                    await eMessageArgs.Channel.SendMessageAsync("Send Self " + strCommand);
+                    await eMessageArgs.Channel.SendMessageAsync($"{const_strSelfID} [{strCommand}]");
                 }
                 catch
                 {
