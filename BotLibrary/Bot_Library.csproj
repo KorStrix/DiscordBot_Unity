@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CBot.cs" />
+    <Compile Include="Extension_Enumerator.cs" />
     <Compile Include="SCPHPConnector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands_Tutorial.cs" />
