@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Bot_Quiz
 {
     [System.Serializable]
-    public class SQuiz : IDBHasKey
+    public class SQuiz : IDBHasKey, IDBInsertAble
     {
         public ulong ulQuizID;
         public string strQuizMaker;
@@ -41,6 +41,17 @@ namespace Bot_Quiz
             return ulQuizID.ToString();
         }
 
+        public NameValueCollection IDBInsertAble_GetInsertParameter()
+        {
+            return new NameValueCollection()
+            {
+                { nameof(strQuizMaker), strQuizMaker },
+                { nameof(strQuizLevel), strQuizLevel },
+                { nameof(strQuiz), strQuiz },
+                { nameof(strAnswer), strAnswer },
+            };
+        }
+
         public string Print_WinPercentage()
         {
             return $"{((float)ulWinCount / ulQuizCount).ToString("F2")}% [정답 횟수({ulWinCount}) / 출제 횟수({ulQuizCount})]";
@@ -48,7 +59,7 @@ namespace Bot_Quiz
     }
 
     [System.Serializable]
-    public class SQuiz_NonRegistered : IDBInsertAble
+    public class SQuiz_NonRegistered : IDictionaryItem<ulong>, IDBInsertAble
     {
         public ulong ulQuizID;
         public string strQuizMaker;
@@ -72,6 +83,23 @@ namespace Bot_Quiz
                 { nameof(strQuiz), strQuiz },
                 { nameof(strAnswer), strAnswer }
             };
+        }
+
+        public ulong IDictionaryItem_GetKey()
+        {
+            return ulQuizID;
+        }
+
+        public void DoRegistQuiz()
+        {
+            SQuiz pQuizNew = new SQuiz();
+            pQuizNew.strQuizMaker = strQuizMaker;
+            pQuizNew.strQuiz = strQuiz;
+            pQuizNew.strAnswer = strAnswer;
+
+            pQuizNew.strQuizLevel = nameof(EUserRole.지망생);
+            pQuizNew = pQuizNew.DoInsert_ToDB();
+            Program.listQuiz.Add(pQuizNew);
         }
     }
 
@@ -177,6 +205,19 @@ namespace Bot_Quiz
                 { nameof(strNickName), strNickName },
                 { nameof(strGrade), strGrade },
             };
+        }
+
+        public async void DoUpdateRole(DiscordGuild pGuild, DiscordMember pMember)
+        {
+            var arrRoles = pGuild.Roles;
+            foreach (var pRole in arrRoles)
+            {
+                if (pRole.Name.Equals(p_pRole.ToString()))
+                    await pGuild.GrantRoleAsync(pMember, pRole);
+
+                if (pRole.Name.Equals(p_pRole.PrevEnum_String<EUserRole>()))
+                    await pGuild.RevokeRoleAsync(pMember, pRole, "");
+            }
         }
     }
 }

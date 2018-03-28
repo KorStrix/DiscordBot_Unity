@@ -19,6 +19,9 @@ namespace Bot_Quiz
 
             if(ProcCheck_And_AddQuizMember(pContext.User))
             {
+                SQuizMember pMember = Program.mapQuizMember[pContext.User.Id];
+                pMember.DoUpdateRole(pContext.Guild, pContext.Member);
+
                 await pContext.Channel.SendMessageAsync($"첫 도전을 환영합니다! {pContext.User.Mention}");
             }
 
@@ -55,7 +58,10 @@ namespace Bot_Quiz
                 {
                     pQuiz.DoAdd_WinCount();
                     if(pMember.DoAdd_QuizPoint(1))
+                    {
+                        pMember.DoUpdateRole(pContext.Guild, pContext.Member);
                         await pContext.Channel.SendMessageAsync($"정답입니다! 진급을 축하드립니다! {pMember.DoPrint_Point(true)}");
+                    }
                     else
                         await pContext.Channel.SendMessageAsync($"정답입니다! 포인트를 획득하셨습니다! {pMember.DoPrint_Point()}");
                 }
@@ -79,15 +85,16 @@ namespace Bot_Quiz
             if (Strix.CBot.CheckIsRespond(pContext.Channel) == false) return;
 
             SQuiz_NonRegistered pQuizNew = new SQuiz_NonRegistered(pContext.User, strQuiz, strAnswer);
-            Program.listQuiz_NonRegistered.Add(pQuizNew.DoInsert_ToDB());
+            pQuizNew = pQuizNew.DoInsert_ToDB();
+            Program.mapQuiz_NonRegistered.Add(pQuizNew.ulQuizID, pQuizNew);
 
-            await pContext.Channel.SendMessageAsync("퀴즈추가요청완료");
+            await pContext.Channel.SendMessageAsync("추가요청완료");
         }
 
 
         [RequirePermissions(DSharpPlus.Permissions.ManageChannels)]
         [Command("퀴즈후보보기")]
-        public async Task Command_Request_AddQuiz(CommandContext pContext)
+        public async Task Command_Show_QuizList_NonRegistered(CommandContext pContext)
         {
             if (Strix.CBot.CheckIsRespond(pContext.Channel) == false) return;
 
@@ -95,16 +102,57 @@ namespace Bot_Quiz
             pEmbed.WithTitle("퀴즈후보리스트입니다.");
 
             int iLoopCount = 1;
-            foreach(SQuiz_NonRegistered pQuiz in Program.listQuiz_NonRegistered)
+            foreach(KeyValuePair<ulong, SQuiz_NonRegistered> pQuiz in Program.mapQuiz_NonRegistered)
+            {
+                string strAnswer = pQuiz.Value.strAnswer;
+                if (strAnswer.Length > 20)
+                    strAnswer = $"{strAnswer.Substring(0, 20)}...";
+                pEmbed.AddField($"{iLoopCount++} . {pQuiz.Value.strQuiz}",
+                    $"ㄴ{strAnswer} 제출자 : {pQuiz.Value.strQuizMaker}");
+            }
+
+            await pContext.Channel.SendMessageAsync(null, false, pEmbed);
+        }
+
+        [RequirePermissions(DSharpPlus.Permissions.ManageChannels)]
+        [Command("퀴즈리스트보기")]
+        public async Task Command_Show_QuizList(CommandContext pContext)
+        {
+            if (Strix.CBot.CheckIsRespond(pContext.Channel) == false) return;
+
+            DiscordEmbedBuilder pEmbed = new DiscordEmbedBuilder();
+            pEmbed.WithTitle("퀴즈리스트입니다.");
+
+            int iLoopCount = 1;
+            foreach (SQuiz pQuiz in Program.listQuiz)
             {
                 string strAnswer = pQuiz.strAnswer;
                 if (strAnswer.Length > 20)
                     strAnswer = $"{strAnswer.Substring(0, 20)}...";
                 pEmbed.AddField($"{iLoopCount++} . {pQuiz.strQuiz}",
-                    $"ㄴ{pQuiz.strAnswer} 제출자 : {pQuiz.strQuizMaker}");
+                    $"ㄴ{strAnswer} 제출자 : {pQuiz.strQuizMaker}");
             }
 
             await pContext.Channel.SendMessageAsync(null, false, pEmbed);
+        }
+
+        [RequirePermissions(DSharpPlus.Permissions.ManageChannels)]
+        [Command("퀴즈후보추가")]
+        public async Task Command_Request_AddQuiz(CommandContext pContext, ulong ulQuizID_NonRegistered)
+        {
+            if (Strix.CBot.CheckIsRespond(pContext.Channel) == false) return;
+
+            SQuiz_NonRegistered pQuiz;
+            if(Program.mapQuiz_NonRegistered.TryGetValue(ulQuizID_NonRegistered, out pQuiz))
+            {
+                pQuiz.DoRegistQuiz();
+                await pContext.Channel.SendMessageAsync("추가 성공");
+            }
+            else
+            {
+
+                await pContext.Channel.SendMessageAsync("추가 실패");
+            }
         }
 
         // ==================================================================================== //

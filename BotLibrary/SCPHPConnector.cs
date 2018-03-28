@@ -91,6 +91,9 @@ namespace Strix
             using (WebClient pWebClient = new WebClient())
             {
                 string strReturn = Encoding.UTF8.GetString(pWebClient.UploadValues(string.Format(XML_PHPConfig.pConfig.strPHP_Address_Prefix, ePHPName.ToString()), arrPost));
+                if (strReturn.Equals("false"))
+                    return null;
+
                 JToken pTokenArray = JObject.Parse(strReturn)["array"];
                 int iLoopIndex = 0;
                 T[] arrReturn = new T[pTokenArray.Count()];

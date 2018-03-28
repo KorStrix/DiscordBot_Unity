@@ -18,11 +18,11 @@ namespace Bot_Quiz
 {
     class Program
     {
-        static private DiscordClient _pClient;
-        static CommandsNextModule _pCommands;
+        static public DiscordClient pClient;
+        static public CommandsNextModule pCommands;
 
         static public List<SQuiz> listQuiz;
-        static public List<SQuiz_NonRegistered> listQuiz_NonRegistered;
+        static public Dictionary<ulong, SQuiz_NonRegistered> mapQuiz_NonRegistered = new Dictionary<ulong, SQuiz_NonRegistered>();
         static public Dictionary<ulong, SQuizMember> mapQuizMember = new Dictionary<ulong, SQuizMember>();
         static public Dictionary<EUserRole, SQuizRole> mapQuizRole = new Dictionary<EUserRole, SQuizRole>();
 
@@ -37,18 +37,17 @@ namespace Bot_Quiz
         static void SyncDB()
         {
             listQuiz = new List<SQuiz>(SCPHPConnector.Get<SQuiz>());
-            listQuiz_NonRegistered = new List<SQuiz_NonRegistered>(SCPHPConnector.Get<SQuiz_NonRegistered>());
-
+            mapQuiz_NonRegistered.AddRange(SCPHPConnector.Get<SQuiz_NonRegistered>());
             mapQuizMember.AddRange(SCPHPConnector.Get<SQuizMember>());
             mapQuizRole.AddRange(SCPHPConnector.Get<SQuizRole>());
         }
 
         static async Task MainAsync(string[] args)
         {
-            Strix.CBot.DoInitClient(out _pClient, out _pCommands);
-            _pCommands.RegisterCommands<Command_Quiz>();
+            Strix.CBot.DoInitClient(out pClient, out pCommands);
+            pCommands.RegisterCommands<Command_Quiz>();
 
-            await _pClient.ConnectAsync();
+            await pClient.ConnectAsync();
             await Task.Delay(-1);
             //while (true)
             //{

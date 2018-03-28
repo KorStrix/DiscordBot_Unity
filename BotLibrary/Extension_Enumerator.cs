@@ -16,7 +16,7 @@ namespace Strix
         static public void AddRange<TKey, TValue>(this Dictionary<TKey, TValue> mapTarget, IEnumerable<TValue> pIterAdd, bool bIsClear = true)
             where TValue : IDictionaryItem<TKey>
         {
-            if (mapTarget == null)
+            if (mapTarget == null || pIterAdd == null)
                 return;
 
             if (bIsClear)
