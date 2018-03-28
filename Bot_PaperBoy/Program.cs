@@ -112,8 +112,10 @@ namespace Bot_PaperBoy
             if (iTimeCheck == -1)
                 return true;
 
-            if(iTimeCheck == 0)
-                return iTimeCurrent == 0;
+            if (iTimeCurrent == 0 && iTimeCheck == 0)
+                return true;
+            else if (iTimeCheck == 0)
+                return false;
             else
                 return (iTimeCurrent % iTimeCheck == 0);
         }

@@ -85,7 +85,10 @@ namespace Bot_PaperBoy
 
             if (Strix.CBot.CheckIsOverDay(strDate, 1) == false)
             {
-                strContents = strContents.Replace("더 읽기",
+                if (string.IsNullOrWhiteSpace(strContents))
+                    strContents = pElement_ImageParents.GetAttribute("href");
+
+            strContents = strContents.Replace("더 읽기",
                     $"[더 읽기]({pElement_ImageParents.GetAttribute("href")})");
 
                 DiscordEmbedBuilder pEmbed = new DiscordEmbedBuilder();
