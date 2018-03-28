@@ -58,6 +58,7 @@
     <Compile Include="Command_Quiz.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DefineMap.cs" />
     <Compile Include="XML_Quiz.cs" />
   </ItemGroup>
   <ItemGroup>

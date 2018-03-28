@@ -16,60 +16,6 @@ using Strix;
 
 namespace Bot_Quiz
 {
-    [System.Serializable]
-    public class SQuiz
-    {
-        public ulong ulQuizID;
-        public string strQuizMaker;
-        public string strQuizLevel;
-        public string strQuiz;
-        public string strAnswer;
-    }
-
-    [System.Serializable]
-    public class SQuiz_NonRegistered : IDBInsertAble
-    {
-        public ulong ulQuizID;
-        public string strQuizMaker;
-        public string strQuiz;
-        public string strAnswer;
-
-        public SQuiz_NonRegistered() { }
-
-        public SQuiz_NonRegistered(DiscordUser pUser, string strQuiz, string strAnswer)
-        {
-            strQuizMaker = pUser.Username;
-            this.strQuiz = strQuiz;
-            this.strAnswer = strAnswer;
-        }
-
-        public NameValueCollection IDBInsertAble_GetInsertParameter()
-        {
-            NameValueCollection arrInsertParameter = new NameValueCollection();
-            arrInsertParameter.Add("strQuizMaker", strQuizMaker);
-            arrInsertParameter.Add("strQuiz", strQuiz);
-            arrInsertParameter.Add("strAnswer", strAnswer);
-
-            return arrInsertParameter;
-        }
-    }
-
-    [System.Serializable]
-    public class SQuizMember : IDictionaryItem<ulong>
-    {
-        public ulong ulUserID;
-        public string strNickName;
-        public string strGrade;
-        public ulong ulQuizPoint;
-        public ulong ulQuizGenreateCount;
-        public ulong ulQuizWinCount;
-
-        public ulong IDictionaryItem_GetKey()
-        {
-            return ulUserID;
-        }
-    }
-
     class Program
     {
         static private DiscordClient _pClient;
@@ -78,6 +24,7 @@ namespace Bot_Quiz
         static public List<SQuiz> listQuiz;
         static public List<SQuiz_NonRegistered> listQuiz_NonRegistered;
         static public Dictionary<ulong, SQuizMember> mapQuizMember = new Dictionary<ulong, SQuizMember>();
+        static public Dictionary<EUserRole, SQuizRole> mapQuizRole = new Dictionary<EUserRole, SQuizRole>();
 
         static void Main(string[] args)
         {
@@ -89,9 +36,11 @@ namespace Bot_Quiz
 
         static void SyncDB()
         {
-            listQuiz = new List<SQuiz>(Strix.SCPHPConnector.Get<SQuiz>());
-            listQuiz_NonRegistered = new List<SQuiz_NonRegistered>(Strix.SCPHPConnector.Get<SQuiz_NonRegistered>());
-            mapQuizMember.AddRange(Strix.SCPHPConnector.Get<SQuizMember>());
+            listQuiz = new List<SQuiz>(SCPHPConnector.Get<SQuiz>());
+            listQuiz_NonRegistered = new List<SQuiz_NonRegistered>(SCPHPConnector.Get<SQuiz_NonRegistered>());
+
+            mapQuizMember.AddRange(SCPHPConnector.Get<SQuizMember>());
+            mapQuizRole.AddRange(SCPHPConnector.Get<SQuizRole>());
         }
 
         static async Task MainAsync(string[] args)
