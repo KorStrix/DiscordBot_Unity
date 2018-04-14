@@ -215,3 +215,6 @@ PHPConfig.xml
 #####
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
+Bot_PaperBoy/bin/Debug/Config.xml
+*.xml
+Bot_Room_Manager/bin/Debug/Config.xml
