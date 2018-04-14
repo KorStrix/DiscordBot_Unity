@@ -3,44 +3,44 @@
 	<PaperConfigDetailList>
 		<PaperConfigDetail CrawlingKey="게임메카" 					IsUsage = "true" ReportChannelID = "422736737597521920">
 			<PaperShowTimeList>
-				<PaperShowTime Hour="8" Minute="0" Second="0" />
+				<PaperShowTime Hour="7" Minute="0" Second="0" />
 			</PaperShowTimeList>
 		</PaperConfigDetail>
 
 		<PaperConfigDetail CrawlingKey="디스이즈게임즈" 					IsUsage = "true" ReportChannelID = "422736737597521920">
 			<PaperShowTimeList>
-				<PaperShowTime Hour="8" Minute="0" Second="0" />
+				<PaperShowTime Hour="7" Minute="0" Second="0" />
 			</PaperShowTimeList>
 		</PaperConfigDetail>
 
 		
 		<PaperConfigDetail CrawlingKey="네이버카페_유니티허브_스터디" 					IsUsage = "true" ReportChannelID = "422736932985110529">
 			<PaperShowTimeList>
-				<PaperShowTime Hour="8" Minute="0" Second="0" />
+				<PaperShowTime Hour="7" Minute="0" Second="0" />
 			</PaperShowTimeList>
 		</PaperConfigDetail>
 
 		<PaperConfigDetail CrawlingKey="네이버카페_유니티허브_구인구직" 					IsUsage = "true" ReportChannelID = "422736932985110529">
 			<PaperShowTimeList>
-				<PaperShowTime Hour="8" Minute="0" Second="0" />
+				<PaperShowTime Hour="7" Minute="0" Second="0" />
 			</PaperShowTimeList>
 		</PaperConfigDetail>
 
 		<PaperConfigDetail CrawlingKey="네이버카페_유니티허브_뉴스" 					IsUsage = "true" ReportChannelID = "422736932985110529">
 			<PaperShowTimeList>
-				<PaperShowTime Hour="8" Minute="0" Second="0" />
+				<PaperShowTime Hour="7" Minute="0" Second="0" />
 			</PaperShowTimeList>
 		</PaperConfigDetail>
 		
 		<PaperConfigDetail CrawlingKey="네이버카페_인디터_팀원모집" 					IsUsage = "true" ReportChannelID = "422736932985110529">
 			<PaperShowTimeList>
-				<PaperShowTime Hour="8" Minute="0" Second="0" />
+				<PaperShowTime Hour="7" Minute="0" Second="0" />
 			</PaperShowTimeList>
 		</PaperConfigDetail>
 
 		
 		
-		<PaperConfigDetail CrawlingKey="네이버실시간뉴스" 					IsUsage = "true" ReportChannelID = "423439247677063169">
+		<PaperConfigDetail CrawlingKey="네이버실시간뉴스" 					IsUsage = "false" ReportChannelID = "423439247677063169">
 			<PaperShowTimeList>
 				<PaperShowTime Hour="-1" Minute="0" Second="0" />
 			</PaperShowTimeList>
@@ -49,7 +49,7 @@
 		
 		<PaperConfigDetail CrawlingKey="유니티블로그" 					IsUsage = "true" ReportChannelID = "427252432456646657">
 			<PaperShowTimeList>
-				<PaperShowTime Hour="8" Minute="30" Second="0" />
+				<PaperShowTime Hour="7" Minute="30" Second="0" />
 			</PaperShowTimeList>
 		</PaperConfigDetail>
 
